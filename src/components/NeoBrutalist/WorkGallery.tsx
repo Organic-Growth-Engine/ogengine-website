@@ -16,12 +16,13 @@ interface Project {
 }
 
 const projects: Project[] = [
-  { id: 1, title: "Aeon", cat: "Immersive", year: "2024", img: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=2670&auto=format&fit=crop" },
-  { id: 2, title: "Mono", cat: "Identity", year: "2023", img: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2670&auto=format&fit=crop" },
-  { id: 3, title: "Nebula", cat: "Web", year: "2024", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2672&auto=format&fit=crop" },
-  { id: 4, title: "Kinetic", cat: "Motion", year: "2023", img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop" },
-  { id: 5, title: "Dust", cat: "CGI", year: "2022", img: "https://images.unsplash.com/photo-1614728263952-84ea256f9679?q=80&w=2616&auto=format&fit=crop" },
-  { id: 6, title: "Void", cat: "Experiential", year: "2023", img: "https://images.unsplash.com/photo-1515462277126-2dd0c162007a?q=80&w=2670&auto=format&fit=crop" }
+  { id: 1, title: "SM - XIII", cat: "Marketing", year: "2026", img: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=2670&auto=format&fit=crop" },
+  { id: 2, title: "L - VII", cat: "Sales", year: "2026", img: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2670&auto=format&fit=crop" },
+  { id: 3, title: "CI - XIX", cat: "Operations", year: "2026", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2672&auto=format&fit=crop" },
+  { id: 4, title: "L - XIV", cat: "Marketing", year: "Coming Soon", img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop" },
+  { id: 5, title: "TBA", cat: "TBA", year: "TBA", img: "https://images.unsplash.com/photo-1515462277126-2dd0c162007a?q=80&w=2670&auto=format&fit=crop" },
+  { id: 6, title: "MA - I", cat: "Marketing", year: "Coming Soon", img: "https://images.unsplash.com/photo-1614728263952-84ea256f9679?q=80&w=2616&auto=format&fit=crop" }
+  
 ];
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
@@ -117,10 +118,10 @@ export default function WorkGallery() {
       <div className="container mx-auto px-4 md:px-8">
         <div className="mb-24 flex flex-col items-center text-center">
             <h2 className="text-[12vw] leading-[0.8] font-heading font-black mix-blend-exclusion z-10">
-              SELECTED
+              AUTOMATION
             </h2>
             <h2 className="text-[12vw] leading-[0.8] font-heading font-black text-transparent stroke-text z-10 -mt-4 md:-mt-10">
-              WORKS
+              SOFTWARES
             </h2>
         </div>
 

@@ -45,20 +45,20 @@ export default function Intro() {
         <div className="flex flex-col text-[7vw] md:text-[6vw] leading-[1.1] font-heading uppercase font-bold tracking-tight">
           
           <div className="intro-line-wrap overflow-hidden flex flex-wrap items-baseline gap-4">
-             <AsciiScramble text="We" className="char" />
-             <AsciiScramble text="don't just" className="char font-serif italic font-light text-gray-400 lowercase" />
-             <AsciiScramble text="build" className="char" />
+             <AsciiScramble text="From" className="char" />
+             <AsciiScramble text="first idea" className="char font-serif italic font-light text-gray-400 lowercase" />
+             <AsciiScramble text="to" className="char" />
           </div>
 
           <div className="intro-line-wrap overflow-hidden flex flex-wrap items-baseline gap-4 pl-[5vw]">
-             <AsciiScramble text="Digital" className="char stroke-text text-transparent" />
-             <AsciiScramble text="Experiences." className="char" />
+             <AsciiScramble text="Loyal" className="char stroke-text text-transparent" />
+             <AsciiScramble text="Customers." className="char" />
           </div>
 
           <div className="intro-line-wrap overflow-hidden flex flex-wrap items-baseline gap-4">
-             <AsciiScramble text="We" className="char" />
-             <AsciiScramble text="engineer" className="char font-serif italic font-light text-white lowercase" />
-             <AsciiScramble text="Cults." className="char" />
+             <AsciiScramble text="One" className="char" />
+             <AsciiScramble text="Connected" className="char font-serif italic font-light text-white lowercase" />
+             <AsciiScramble text="System." className="char" />
           </div>
 
         </div>
@@ -66,7 +66,7 @@ export default function Intro() {
         <div className="mt-32 w-full flex justify-end">
           <div className="w-full md:w-1/3 text-lg md:text-xl font-light text-gray-400 font-mono leading-relaxed border-l border-gray-800 pl-8">
             <p>
-              In the age of templates, <span className="text-white italic font-serif">chaos is currency</span>. We strip away the non-essential to reveal the raw, beating heart of your brand.
+              OG is built to solve, <span className="text-white italic font-serif">the whole puzzle</span>, so nothing is missed in the MOSS cycles.
             </p>
           </div>
         </div>
