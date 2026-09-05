@@ -37,12 +37,12 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
           alt={project.title} 
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-white/20 group-hover:opacity-0 transition-opacity duration-500"></div>
+        <div className="absolute inset-0 bg-black/20 group-hover:opacity-0 transition-opacity duration-500"></div>
       </div>
-      <div className="flex justify-between items-end border-b border-black/15 pb-4">
+      <div className="flex justify-between items-end border-b border-white/20 pb-4">
         <div>
           <h3 className="text-4xl md:text-5xl font-heading mb-1">{project.title}</h3>
-          <span className="text-sm font-mono text-zinc-500">{project.cat}</span>
+          <span className="text-sm font-mono text-gray-400">{project.cat}</span>
         </div>
         <span className="text-sm font-mono">{project.year}</span>
       </div>
@@ -113,13 +113,13 @@ export default function WorkGallery() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="work" className="relative bg-white text-black pt-24 pb-48 md:pb-72 overflow-hidden">
+    <section ref={sectionRef} id="work" className="relative bg-[#050505] text-white pt-24 pb-48 md:pb-72 overflow-hidden">
       <div className="container mx-auto px-4 md:px-8">
         <div className="mb-24 flex flex-col items-center text-center">
-            <h2 className="text-[12vw] leading-[0.8] font-heading font-black text-black z-10">
+            <h2 className="text-[12vw] leading-[0.8] font-heading font-black mix-blend-exclusion z-10">
               SELECTED
             </h2>
-            <h2 className="text-[12vw] leading-[0.8] font-heading font-black text-[#DC2626] z-10 -mt-4 md:-mt-10">
+            <h2 className="text-[12vw] leading-[0.8] font-heading font-black text-transparent stroke-text z-10 -mt-4 md:-mt-10">
               WORKS
             </h2>
         </div>

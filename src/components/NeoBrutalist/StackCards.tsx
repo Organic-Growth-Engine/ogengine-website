@@ -82,14 +82,14 @@ export default function StackCards() {
   }, []);
 
   return (
-    <div ref={stackRef} className="relative w-full bg-[#050505]">
+    <div ref={stackRef} className="relative w-full bg-white">
       {/* 1. ContactForm dictates the container's natural height and flows normally */}
-      <section className="stack-section relative z-10 w-full bg-[#050505]">
+      <section className="stack-section relative z-10 w-full bg-white">
         <ContactForm />
       </section>
 
       {/* 2. EyesCTA is pinned to the bottom of the container, ready to slide up */}
-      <section className="stack-section absolute bottom-0 left-0 right-0 z-20 w-full bg-[#050505] h-[100svh] lg:h-screen flex items-center justify-center">
+      <section className="stack-section absolute bottom-0 left-0 right-0 z-20 w-full bg-white h-[100svh] lg:h-screen flex items-center justify-center">
         <div className="w-full">
           <EyesCTA />
         </div>
