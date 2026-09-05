@@ -18,7 +18,7 @@ export default function AsciiScramble({
   duration = 800,
   triggerOnScroll = true
 }: AsciiScrambleProps) {
-  const [displayText, setDisplayText] = useState('');
+  const [displayText, setDisplayText] = useState(text);
   const elementRef = useRef<HTMLSpanElement>(null);
   
   // Ref handles to clear intervals & timeouts on unmount / Fast Refresh

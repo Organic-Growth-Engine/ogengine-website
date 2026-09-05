@@ -14,7 +14,7 @@
   height: 60px;
   padding: 0;
   background-color: white;
-  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  border: 0.5px solid rgba(0, 0, 0, 0.08);
   border-radius: 0.75rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -79,7 +79,7 @@
 
 .logo {
   height: 52px;
-  mix-blend-mode: screen;
+  mix-blend-mode: multiply;
 }
 
 .card-nav-cta-button {
@@ -219,7 +219,7 @@
 
 .speaker-button {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: calc(0.75rem - 0.35rem);
   width: 44px;
   height: 44px;
@@ -233,8 +233,8 @@
 }
 
 .speaker-button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.3);
 }
 
 .speaker-button svg {

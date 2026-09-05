@@ -174,7 +174,7 @@ const CardNav = ({
               type="button"
               className="speaker-button"
               onClick={handleToggleMute}
-              style={{ color: menuColor || '#fff', borderColor: 'rgba(255, 255, 255, 0.15)' }}
+              style={{ color: menuColor || '#000', borderColor: 'rgba(0, 0, 0, 0.12)' }}
               title={isMuted ? "Unmute Sound" : "Mute Sound"}
               aria-label={isMuted ? "Unmute Sound" : "Mute Sound"}
               onMouseEnter={() => soundManager.playHover()}

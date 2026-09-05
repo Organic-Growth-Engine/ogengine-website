@@ -117,7 +117,7 @@ export default function Footer() {
 
         {/* BOTTOM BAR */}
         <div className="pb-4 flex font-mono flex-col sm:flex-row gap-3 sm:gap-0 sm:justify-between text-xs text-zinc-600 max-w-6xl mx-auto">
-          <p>© {new Date().getFullYear()} OGEngine. All Rights Reserved.</p>
+          <p suppressHydrationWarning>© {new Date().getFullYear()} OGEngine. All Rights Reserved.</p>
           <p
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="cursor-pointer hover:text-white transition-colors duration-200 uppercase tracking-widest"
