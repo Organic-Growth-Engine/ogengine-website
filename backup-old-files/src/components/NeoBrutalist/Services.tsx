@@ -109,7 +109,7 @@ export default function Services() {
   };
 
   return (
-    <section ref={sectionRef} id="services" className="py-24 bg-white text-[#0a0a0a] relative z-10 overflow-hidden">
+    <section ref={sectionRef} id="services" className="py-24 bg-[#050505] text-[#f4f4f4] relative z-10 overflow-hidden">
       
       {/* Floating Reveal Image - Fixed position relative to viewport */}
       <div 
@@ -125,16 +125,16 @@ export default function Services() {
           <h2 className="text-6xl md:text-8xl font-bold mb-8 md:mb-0 font-heading">
             <AsciiScramble text="Our" /><br /><AsciiScramble text="Expertise" />
           </h2>
-          <p className="max-w-xs text-sm uppercase tracking-wide text-zinc-500 pt-4 font-mono">
+          <p className="max-w-xs text-sm uppercase tracking-wide text-gray-400 pt-4 font-mono">
             Comprehensive design solutions for forward-thinking brands.
           </p>
         </div>
 
-        <ul ref={listRef} className="border-t border-zinc-300">
+        <ul ref={listRef} className="border-t border-gray-700">
           {services.map((service, idx) => (
             <li 
               key={service.id} 
-              className="group border-b border-zinc-300 relative overflow-hidden cursor-pointer"
+              className="group border-b border-gray-700 relative overflow-hidden cursor-pointer"
               onMouseEnter={() => {
                 handleMouseEnter(service.img);
                 soundManager.playHover();
@@ -147,15 +147,15 @@ export default function Services() {
             >
               <div className="relative z-10 flex justify-between items-center py-12 px-4 group-hover:px-8 transition-all duration-500">
                 <div className="flex items-baseline gap-8">
-                  <span className="text-xs font-mono text-zinc-400 group-hover:text-black transition-colors">0{service.id}</span>
-                  <h3 className="text-3xl md:text-5xl group-hover:text-black transition-colors group-hover:translate-x-4 duration-500">{service.title}</h3>
+                  <span className="text-xs font-mono text-gray-500 group-hover:text-white transition-colors">0{service.id}</span>
+                  <h3 className="text-3xl md:text-5xl group-hover:text-white transition-colors group-hover:translate-x-4 duration-500">{service.title}</h3>
                 </div>
                 
                 <div className="flex items-center gap-4">
-                  <span className="text-xs uppercase tracking-widest opacity-0 md:opacity-100 group-hover:text-black transition-all transform translate-y-4 group-hover:translate-y-0 duration-500 delay-75">
+                  <span className="text-xs uppercase tracking-widest opacity-0 md:opacity-100 group-hover:text-white transition-all transform translate-y-4 group-hover:translate-y-0 duration-500 delay-75">
                     {service.category}
                   </span>
-                  <ArrowUpRight className={`w-8 h-8 text-zinc-400 transition-all duration-500 ${openIndex === idx ? 'text-black rotate-90' : 'group-hover:text-black group-hover:rotate-45'}`} />
+                  <ArrowUpRight className={`w-8 h-8 text-gray-500 transition-all duration-500 ${openIndex === idx ? 'text-white rotate-90' : 'group-hover:text-white group-hover:rotate-45'}`} />
                 </div>
               </div>
 
