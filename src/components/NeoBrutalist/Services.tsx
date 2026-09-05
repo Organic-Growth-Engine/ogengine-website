@@ -12,35 +12,42 @@ gsap.registerPlugin(ScrollTrigger);
 const services = [
   { 
     id: 1, 
-    title: 'Brand Identity', 
+    title: 'Validate and Position', 
     category: 'Strategy', 
     img: 'https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=2000',
     desc: 'We craft memorable visual signatures and corporate personalities. From custom logomarks and brand styling to messaging guidelines, we build systems that translate core values into recognizable visual brand identities.'
   },
   { 
     id: 2, 
-    title: 'Art Direction', 
+    title: 'Build the Foundation', 
     category: 'Design', 
     img: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2000',
     desc: 'Setting the aesthetic roadmap and vision for creative campaigns. We orchestrate typography systems, color layouts, structural assets, and production standards into a unified, premium visual language.'
   },
   { 
     id: 3, 
-    title: 'Film Production', 
+    title: 'Create and Attract', 
     category: 'Content', 
     img: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=2000',
     desc: 'Cinematic video storytelling that captures attention and drives conversion. We manage full-scale production cycles: script writing, directing, lighting, cinematography, sound scoring, and post-editing.'
   },
   { 
     id: 4, 
-    title: 'Immersive Web', 
+    title: 'Acquire and Convert', 
     category: 'Development', 
     img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2000',
     desc: 'Engineering high-fidelity 3D graphics in browser viewports using WebGL and WebGPU. We develop performant, interactive portfolios and game engine canvases with custom lighting maps and dynamic drag controls.'
   },
   { 
     id: 5, 
-    title: 'Campaigns', 
+    title: 'Nurture and Close', 
+    category: 'Marketing', 
+    img: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2000',
+    desc: 'Integrated multichannel activation strategies designed to capture audience focus. We build, monitor, and refine end-to-end digital loops to expand brand reach and maximize conversions.'
+  },
+  { 
+    id: 6, 
+    title: 'Learn and Improve', 
     category: 'Marketing', 
     img: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2000',
     desc: 'Integrated multichannel activation strategies designed to capture audience focus. We build, monitor, and refine end-to-end digital loops to expand brand reach and maximize conversions.'
@@ -123,7 +130,7 @@ export default function Services() {
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-start mb-20">
           <h2 className="text-6xl md:text-8xl font-bold mb-8 md:mb-0 font-heading">
-            <AsciiScramble text="Our" /><br /><AsciiScramble text="Expertise" />
+            <AsciiScramble text="We" /><br /><AsciiScramble text="Provide" />
           </h2>
           <p className="max-w-xs text-sm uppercase tracking-wide text-gray-400 pt-4 font-mono">
             Comprehensive design solutions for forward-thinking brands.
