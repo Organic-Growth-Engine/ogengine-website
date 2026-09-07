@@ -42,9 +42,9 @@ const columns = [
 
 export default function Footer() {
   return (
-    <footer className="min-h-[calc(100svh-16px)] w-full overflow-hidden rounded-none bg-white px-6 py-14 text-[#0a0a0a] sm:px-12 lg:px-[5.8vw] lg:py-14">
-      <div className="relative flex min-h-[calc(100svh-128px)] flex-col border-t border-black/10 pt-16 sm:pt-[4.7vw]">
-        <div className="relative z-10 grid grid-cols-1 gap-14 lg:grid-cols-[1.35fr_1fr_1fr_1fr_1fr] lg:gap-10">
+    <footer className="min-h-[calc(100svh-16px)] w-full overflow-hidden rounded-none bg-white px-4 sm:px-6 lg:px-8 py-14 text-[#0a0a0a]">
+      <div className="relative flex min-h-[calc(100svh-128px)] flex-col border-t border-black/10 pt-16 sm:pt-[4.7vw] max-w-[1440px] mx-auto">
+        <div className="relative z-10 grid grid-cols-2 gap-8 sm:gap-10 lg:grid-cols-[1.35fr_1fr_1fr_1fr_1fr] lg:gap-10">
           <div className="max-w-[370px]">
             <Link
               href="/"

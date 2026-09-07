@@ -162,6 +162,44 @@ body {
   }
 }
 
+/* ── Global container cap ── */
+/* Prevents content from stretching on ultrawide monitors (2560px+) */
+.container {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
 @utility metallic-text {
   background: linear-gradient(
     135deg,
@@ -374,9 +412,10 @@ body {
   }
 }
 
-/* Editorial Word — Red Fluid Glass Hover */
+/* Editorial Word — Oil Amber Fluid Glass Hover */
 .editorial-word {
   cursor: pointer;
+  color: #C98A2E;
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-block;
   position: relative;
@@ -385,18 +424,18 @@ body {
 .editorial-word:hover {
   background: linear-gradient(
     135deg,
-    #ff1a1a 0%,
-    #cc0000 30%,
-    #ff4444 50%,
-    #b30000 70%,
-    #ff1a1a 100%
+    #C98A2E 0%,
+    #A06E1D 30%,
+    #E0A840 50%,
+    #8B5E15 70%,
+    #C98A2E 100%
   );
   background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: glass-flow 1.5s ease-in-out infinite;
-  filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.3));
+  filter: drop-shadow(0 0 8px rgba(201, 138, 46, 0.3));
   transform: scale(1.05);
 }
 
@@ -452,7 +491,7 @@ body {
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, #dc2626 0%, #ff4444 50%, #dc2626 100%);
+  background: linear-gradient(90deg, #C98A2E 0%, #E0A840 50%, #C98A2E 100%);
 }
 
 /* Visible state */

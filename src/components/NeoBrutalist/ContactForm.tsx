@@ -38,9 +38,9 @@ export default function ContactForm() {
     <section
       ref={sectionRef}
       id="contact"
-      className="relative px-6 sm:px-10 lg:px-20 py-24 lg:py-32 bg-white text-black overflow-hidden border-t border-zinc-200"
+      className="relative py-24 lg:py-32 bg-white text-black overflow-hidden border-t border-zinc-200"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 max-w-6xl mx-auto">
+      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
         {/* LEFT SIDE */}
         <div className="flex flex-col justify-center">
           {/* Section Label */}
@@ -51,7 +51,7 @@ export default function ContactForm() {
           </div>
 
           <h3 className="text-black font-heading font-black text-3xl sm:text-4xl lg:text-5xl leading-tight uppercase tracking-tight">
-            Let's <span className="text-[#DC2626]">Build</span>
+            Let's <span className="text-[#C98A2E]">Build</span>
             <br />
             Something
             <br />

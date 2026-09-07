@@ -49,15 +49,10 @@ const services = [
 export default function Services() {
   const sectionRef = useRef<HTMLElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
-  const revealRef = useRef<HTMLDivElement>(null);
-  const [activeImage, setActiveImage] = useState(services[0].img);
   const [openIndex, setOpenIndex] = useState<number | null>(null); // starts collapsed
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Setup reveal element centering
-      gsap.set(revealRef.current, { xPercent: -50, yPercent: -50 });
-
       // List Item Reveal
       const items = listRef.current?.children;
       if (items) {
@@ -78,35 +73,12 @@ export default function Services() {
           );
         });
       }
-
-      // Mouse Move Effect for Image Reveal
-      const moveReveal = (e: MouseEvent) => {
-        if (!revealRef.current) return;
-
-        gsap.to(revealRef.current, {
-          x: e.clientX,
-          y: e.clientY,
-          duration: 0.5,
-          ease: "power2.out",
-          overwrite: "auto",
-        });
-      };
-
-      window.addEventListener("mousemove", moveReveal);
-      return () => window.removeEventListener("mousemove", moveReveal);
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
-  const handleMouseEnter = (img: string) => {
-    setActiveImage(img);
-    gsap.to(revealRef.current, { scale: 1, opacity: 1, duration: 0.3 });
-  };
 
-  const handleMouseLeave = () => {
-    gsap.to(revealRef.current, { scale: 0, opacity: 0, duration: 0.3 });
-  };
 
   return (
     <section
@@ -114,22 +86,11 @@ export default function Services() {
       id="services"
       className="py-24 bg-white text-[#0a0a0a] relative z-10 overflow-hidden"
     >
-      {/* Floating Reveal Image - Fixed position relative to viewport */}
-      <div
-        ref={revealRef}
-        className="fixed top-0 left-0 w-[300px] h-[400px] pointer-events-none z-50 opacity-0 scale-0 hidden md:block rounded-lg overflow-hidden mix-blend-exclusion"
-        style={{ willChange: "transform" }}
-      >
-        <img
-          src={activeImage}
-          alt="Service Preview"
-          className="w-full h-full object-cover"
-        />
-      </div>
 
-      <div className="container mx-auto px-4 md:px-8 relative z-10">
+
+      <div className="container mx-auto relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-start mb-20">
-          <h2 className="text-6xl md:text-8xl font-bold mb-8 md:mb-0 font-heading">
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 md:mb-0 font-heading">
             Our
             <br />
             Infrastructure
@@ -144,10 +105,7 @@ export default function Services() {
             <li
               key={service.id}
               className="group border-b border-zinc-300 relative overflow-hidden cursor-pointer"
-              onMouseEnter={() => {
-                handleMouseEnter(service.img);
-              }}
-              onMouseLeave={handleMouseLeave}
+
               onClick={() => {
                 setOpenIndex(openIndex === idx ? null : idx);
               }}
@@ -157,7 +115,7 @@ export default function Services() {
                   <span className="text-xs font-mono text-zinc-400 group-hover:text-black transition-colors">
                     0{service.id}
                   </span>
-                  <h3 className="text-3xl md:text-5xl group-hover:text-black transition-colors group-hover:translate-x-4 duration-500">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl group-hover:text-black transition-colors group-hover:translate-x-4 duration-500">
                     {service.title}
                   </h3>
                 </div>
@@ -177,7 +135,7 @@ export default function Services() {
                 className={`overflow-hidden transition-all duration-500 ease-out ${openIndex === idx ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0"}`}
               >
                 <div className="pb-12 pl-4 pr-4 md:pl-[120px] max-w-3xl">
-                  <p className="text-lg md:text-xl leading-relaxed font-light text-zinc-400">
+                  <p className="text-base md:text-lg lg:text-xl leading-relaxed font-light text-zinc-400">
                     {service.desc}
                   </p>
                 </div>
