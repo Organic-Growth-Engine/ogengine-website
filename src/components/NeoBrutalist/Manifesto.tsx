@@ -7,11 +7,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const statements = [
-  "Design is not visual.",
-  "It is a feeling.",
-  "We reject the template.",
-  "Chaos is our grid.",
-  "Building for tomorrow.",
+  "MARKETING",
+  "OPERATIONS",
+  "SALES",
+  "ESSENTIALLY",
+  "AUTOMATED FOR YOU",
 ];
 
 export default function Manifesto() {

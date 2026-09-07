@@ -95,9 +95,9 @@ export default function Services() {
             <br />
             Infrastructure
           </h2>
-          <p className="max-w-xs text-sm uppercase tracking-wide text-zinc-500 pt-4 font-mono">
+          {/* <p className="max-w-xs text-sm uppercase tracking-wide text-zinc-500 pt-4 font-mono">
             Comprehensive design solutions for forward-thinking brands.
-          </p>
+          </p> */}
         </div>
 
         <ul ref={listRef} className="border-t border-zinc-300">
