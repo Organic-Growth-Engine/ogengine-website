@@ -1,7 +1,6 @@
-'use client';
+"use client";
 
-import React, { useEffect, useRef } from 'react';
-import { soundManager } from '@/lib/sound';
+import React, { useEffect, useRef } from "react";
 
 function Eye() {
   const eyeRef = useRef<HTMLDivElement>(null);
@@ -17,10 +16,7 @@ function Eye() {
       const eyeCenterX = eye.left + eye.width / 2;
       const eyeCenterY = eye.top + eye.height / 2;
 
-      const angle = Math.atan2(
-        e.clientY - eyeCenterY,
-        e.clientX - eyeCenterX
-      );
+      const angle = Math.atan2(e.clientY - eyeCenterY, e.clientX - eyeCenterX);
 
       const maxDistance = eye.width < 80 ? 12 : 25;
       const x = Math.cos(angle) * maxDistance;
@@ -32,14 +28,13 @@ function Eye() {
       const angleDiff = Math.abs(angle - lastAngleRef.current);
       const now = Date.now();
       if (angleDiff > 0.45 && now - lastPlayTimeRef.current > 220) {
-        soundManager.playEyeMoveTick();
         lastAngleRef.current = angle;
         lastPlayTimeRef.current = now;
       }
     }
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   return (
@@ -81,8 +76,6 @@ export default function EyesCTA() {
           href="https://github.com/AbhishekChoudharyy/OGengine"
           target="_blank"
           rel="noopener noreferrer"
-          onMouseEnter={() => soundManager.playHover()}
-          onClick={() => soundManager.playClick()}
           className="group mt-12 relative cursor-pointer px-12 sm:px-16 py-3 sm:py-4 rounded-full font-heading font-bold text-sm sm:text-base flex gap-2 text-black justify-center items-center overflow-hidden bg-white border border-zinc-300 uppercase tracking-wider"
         >
           {/* Wipe animation */}
