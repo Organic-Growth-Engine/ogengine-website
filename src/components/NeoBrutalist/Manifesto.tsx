@@ -68,7 +68,7 @@ export default function Manifesto() {
             ref={(el) => {
               textRefs.current[i] = el;
             }}
-            className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-[6vw] md:text-[5vw] font-heading font-bold uppercase leading-tight mix-blend-difference ${i === 0 ? "opacity-100" : "opacity-0 scale-90 blur-sm"}`}
+            className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-[clamp(1.8rem,6vw,4.5rem)] md:text-[clamp(2.5rem,5vw,5rem)] font-heading font-bold uppercase leading-tight mix-blend-difference px-4 ${i === 0 ? "opacity-100" : "opacity-0 scale-90 blur-sm"}`}
             style={{
               transition:
                 "opacity 0.35s ease, transform 0.35s ease, filter 0.35s ease",

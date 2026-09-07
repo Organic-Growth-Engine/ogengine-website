@@ -40,10 +40,10 @@ export default function Intro() {
   return (
     <section
       ref={sectionRef}
-      className="py-32 md:py-56 bg-white text-[#0a0a0a] overflow-hidden px-4"
+      className="py-32 md:py-56 bg-white text-[#0a0a0a] overflow-hidden px-4 sm:px-6 lg:px-8"
     >
       <div className="container mx-auto">
-        <div className="flex flex-col text-[7vw] md:text-[6vw] leading-[1.1] font-heading uppercase font-bold tracking-tight">
+        <div className="flex flex-col text-[7vw] md:text-[clamp(2.5rem,6vw,5.5rem)] leading-[1.1] font-heading uppercase font-bold tracking-tight">
           <div className="intro-line-wrap overflow-hidden flex flex-wrap items-baseline gap-4">
             <span className="char">From</span>
             <span className="char font-serif italic font-light text-zinc-400 lowercase">
@@ -53,7 +53,7 @@ export default function Intro() {
           </div>
 
           <div className="intro-line-wrap overflow-hidden flex flex-wrap items-baseline gap-4 pl-[5vw]">
-            <span className="char text-[#DC2626]">Loyal</span>
+            <span className="char text-[#C98A2E]">Loyal</span>
             <span className="char">customer.</span>
           </div>
 
@@ -67,7 +67,7 @@ export default function Intro() {
         </div>
 
         <div className="mt-32 w-full flex justify-end">
-          <div className="w-full md:w-1/3 text-lg md:text-xl font-light text-zinc-500 font-mono leading-relaxed border-l border-zinc-300 pl-8">
+          <div className="w-full md:w-2/5 lg:w-1/3 text-base md:text-lg lg:text-xl font-light text-zinc-500 font-mono leading-relaxed border-l border-zinc-300 pl-8">
             <p>
               OG is built to solve,{" "}
               <span className="text-black italic font-serif">

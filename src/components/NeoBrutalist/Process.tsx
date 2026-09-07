@@ -56,9 +56,9 @@ export default function Process() {
       ref={sectionRef}
       className="py-24 bg-[#050505] text-[#e1e1e1] border-t border-zinc-800"
     >
-      <div className="container mx-auto px-4 md:px-8">
+      <div className="container mx-auto">
         <div className="flex flex-col md:flex-row mb-24 justify-between items-end">
-          <h2 className="text-[10vw] md:text-[8vw] leading-[0.8] tracking-tighter process-title font-heading font-black">
+          <h2 className="text-[clamp(3rem,10vw,7.5rem)] md:text-[clamp(3.5rem,8vw,7rem)] leading-[0.8] tracking-tighter process-title font-heading font-black">
             THE
             <br />
             PROCESS
@@ -83,7 +83,7 @@ export default function Process() {
                   <span className="font-mono text-sm md:text-base opacity-50 text-zinc-500">
                     ({step.num})
                   </span>
-                  <h3 className="text-3xl md:text-6xl font-normal group-hover:translate-x-4 transition-transform duration-500 font-serif-italic">
+                  <h3 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-normal group-hover:translate-x-4 transition-transform duration-500 font-serif-italic">
                     {step.title}
                   </h3>
                 </div>
@@ -104,7 +104,7 @@ export default function Process() {
                 className={`overflow-hidden transition-all duration-700 ease-out ${openIndex === index ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0"}`}
               >
                 <div className="pb-12 md:pl-[120px] max-w-2xl">
-                  <p className="text-xl md:text-2xl leading-relaxed font-light text-zinc-400">
+                  <p className="text-lg md:text-xl lg:text-2xl leading-relaxed font-light text-zinc-400">
                     {step.desc}
                   </p>
                 </div>
