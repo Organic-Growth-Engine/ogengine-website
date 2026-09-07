@@ -6,9 +6,8 @@ const columns = [
   {
     title: "Reach Out",
     links: [
-      { label: "Gmail", href: "#about" },
-      { label: "Contact", href: "#team" },
-     
+      { label: "Gmail", href: "mailto:ogengine.office@gmail.com" },
+      { label: "Contact", href: "tel:9870562062" },
     ],
   },
   {
@@ -33,9 +32,18 @@ const columns = [
   {
     title: "Legals",
     links: [
-      { label: "Privacy Policy", href: "#privacy" },
-      { label: "Terms of service", href: "#terms" },
-      { label: "Cookie policy", href: "#cookies" },
+      {
+        label: "Privacy Policy",
+        href: "/Cookie_Policy_OrganicGrowthEngine.docx",
+      },
+      {
+        label: "Terms of service",
+        href: "/Terms_of_Service_OrganicGrowthEngine.docx",
+      },
+      {
+        label: "Cookie policy",
+        href: "/Cookie_Policy_OrganicGrowthEngine.docx",
+      },
     ],
   },
 ];
@@ -59,7 +67,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mt-5 text-[15px] leading-6 text-zinc-500">
-              © copyright for OG Engine 2024. All rights reserved.
+              © copyright for OG Engine 2026. All rights reserved.
             </p>
             <div className="mt-11">
               <p className="text-[18px] font-medium tracking-[-0.03em] text-[#0a0a0a]">

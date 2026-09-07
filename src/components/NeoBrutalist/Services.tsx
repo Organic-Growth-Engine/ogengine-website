@@ -42,7 +42,6 @@ const services = [
     id: 6,
     title: "Learn and Improve",
     category: "Marketing",
-
     desc: "Your growth engine should get smarter over time. Every campaign, customer and conversion creates valuable data. We turn those insights into actions continuously improving your marketing, sales and operations so your business becomes more efficient and more profitable.",
   },
 ];
@@ -96,9 +95,9 @@ export default function Services() {
             <br />
             Infrastructure
           </h2>
-          <p className="max-w-xs text-sm uppercase tracking-wide text-zinc-500 pt-4 font-mono">
+          {/* <p className="max-w-xs text-sm uppercase tracking-wide text-zinc-500 pt-4 font-mono">
             Comprehensive design solutions for forward-thinking brands.
-          </p>
+          </p> */}
         </div>
 
         <ul ref={listRef} className="border-t border-zinc-300">

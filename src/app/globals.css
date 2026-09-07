@@ -312,7 +312,7 @@ body {
 
 .og-footer-watermark {
   position: absolute;
-  right: -12.5%;
+  right: -18.5%;
   bottom: -50%;
   width: min(2100px);
   aspect-ratio: 1.5;

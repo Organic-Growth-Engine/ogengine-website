@@ -172,7 +172,7 @@ export default function Home() {
               <a
                 href="/"
                 className="text-base sm:text-lg md:text-xl tracking-[-0.02em] uppercase text-black cursor-pointer select-none no-underline"
-                style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 400 }}
+                style={{ fontFamily: "'Geist Mono'", fontWeight:200,}}
               >
                 Organic Growth Engine
               </a>
