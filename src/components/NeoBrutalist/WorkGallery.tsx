@@ -72,7 +72,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
       </div>
       <div className="flex justify-between items-end border-b border-black/15 pb-4">
         <div>
-          <h3 className="text-4xl md:text-5xl font-heading mb-1">
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-heading mb-1">
             {project.title}
           </h3>
           <span className="text-sm font-mono text-zinc-500">{project.cat}</span>
@@ -145,17 +145,17 @@ export default function WorkGallery() {
       id="work"
       className="relative bg-white text-black pt-24 pb-48 md:pb-72 overflow-hidden"
     >
-      <div className="container mx-auto px-4 md:px-8">
+      <div className="container mx-auto">
         <div className="mb-24 flex flex-col items-center text-center">
-          <h2 className="text-[12vw] leading-[0.8] font-heading font-black text-black z-10">
+          <h2 className="text-[clamp(2.5rem,12vw,9rem)] leading-[0.8] font-heading font-black text-black z-10">
             AUTOMATION
           </h2>
-          <h2 className="text-[10vw] leading-[0.8] font-heading font-black text-[#DC2626] z-10 -mt-4 md:-mt-10">
+          <h2 className="text-[clamp(2rem,10vw,7.5rem)] leading-[0.8] font-heading font-black text-[#C98A2E] z-10 -mt-4 md:-mt-10">
             TOOLS SUITE
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 px-4 md:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 lg:gap-24">
           {/* Left Column - Starts normal, moves down slowly */}
           <div
             ref={leftColRef}

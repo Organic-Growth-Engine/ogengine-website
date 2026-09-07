@@ -114,8 +114,8 @@ export default function Home() {
         ref={heroRef}
         className="relative min-h-screen flex flex-col justify-between overflow-hidden bg-white"
       >
-        <div className="relative w-full h-full min-h-screen max-w-[1600px] mx-auto px-6 lg:px-12 flex flex-col justify-between">
-          {/* OG Red Logo */}
+        <div className="relative w-full h-full min-h-screen max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 flex flex-col justify-between">
+          {/* OG Logo */}
           <div
             className="absolute inset-0 z-[1] flex items-center justify-center pointer-events-none"
             style={{ perspective: "1200px" }}
@@ -130,7 +130,7 @@ export default function Home() {
               }}
             >
               <img
-                src="/og-logo-red.png"
+                src="/og-logo-amber.png"
                 alt="OG Engine"
                 className="hero-logo"
                 draggable={false}
@@ -201,9 +201,9 @@ export default function Home() {
             </div>
 
             {/* Big Editorial Text — Left Side (upper) */}
-            <div className="absolute left-6 sm:left-10 lg:left-16 top-[28%] sm:top-[25%] z-20 max-w-[200px] sm:max-w-[250px] md:max-w-[300px] pointer-events-auto">
+            <div className="absolute left-6 sm:left-10 lg:left-16 xl:left-20 top-[28%] sm:top-[25%] z-20 max-w-[180px] sm:max-w-[240px] md:max-w-[280px] lg:max-w-[320px] pointer-events-auto">
               <h2
-                className="text-[5vw] sm:text-[3.5vw] md:text-[2.8vw] lg:text-[clamp(1.4rem,2.2vw,2.2rem)] leading-[0.95] uppercase text-black flex flex-wrap"
+                className="text-[5vw] sm:text-[3.5vw] md:text-[2.8vw] lg:text-[clamp(1.4rem,2vw,2rem)] leading-[0.95] uppercase text-black flex flex-wrap"
                 style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 400 }}
               >
                 {["Young", "founders"].map((word, i) => (
@@ -222,9 +222,9 @@ export default function Home() {
             </div>
 
             {/* Big Editorial Text — Right Side (lower) */}
-            <div className="absolute right-6 sm:right-10 lg:right-16 top-[60%] sm:top-[60%] z-20 max-w-[240px] sm:max-w-[300px] md:max-w-[360px] pointer-events-auto">
+            <div className="absolute right-6 sm:right-10 lg:right-16 xl:right-20 top-[60%] sm:top-[60%] z-20 max-w-[200px] sm:max-w-[280px] md:max-w-[340px] lg:max-w-[360px] pointer-events-auto">
               <h2
-                className="text-[5vw] sm:text-[3.5vw] md:text-[2.8vw] lg:text-[clamp(1.4rem,2.2vw,2.2rem)] leading-[0.95] uppercase text-black flex flex-wrap justify-end"
+                className="text-[5vw] sm:text-[3.5vw] md:text-[2.8vw] lg:text-[clamp(1.4rem,2vw,2rem)] leading-[0.95] uppercase text-black flex flex-wrap justify-end"
                 style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 400 }}
               >
                 <span className="mr-[0.25em]">Full-stack</span>
@@ -266,12 +266,12 @@ export default function Home() {
             {/* Bottom Layout HUD */}
             <div
               ref={bottomBarRef}
-              className="w-full flex flex-col md:flex-row items-center justify-center md:justify-between px-6 lg:px-8 pb-8 md:pb-12 pointer-events-none select-none gap-4 md:gap-0"
+              className="w-full flex flex-col md:flex-row items-center justify-center md:justify-between pb-8 md:pb-12 pointer-events-none select-none gap-4 md:gap-0"
               style={{ opacity: 0 }}
             >
               {/* Bottom Left: Scroll to explore */}
               <div
-                className="flex flex-col items-start gap-1 md:gap-2 text-[9px] md:text-xs font-mono text-[#71717a] tracking-widest cursor-pointer pointer-events-auto hover:text-black transition-colors duration-200 absolute md:relative bottom-24 md:bottom-auto left-6 md:left-auto"
+                className="hidden md:flex flex-col items-start gap-1 md:gap-2 text-[9px] md:text-xs font-mono text-[#71717a] tracking-widest cursor-pointer pointer-events-auto hover:text-black transition-colors duration-200"
                 onClick={() => {
                   const introSection = document.getElementById("contact");
                   introSection?.scrollIntoView({ behavior: "smooth" });
@@ -305,7 +305,7 @@ export default function Home() {
                 href="https://github.com/AbhishekChoudharyy/OGengine"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pointer-events-auto flex items-center gap-2 px-6 py-3 border border-zinc-300 bg-white/60 backdrop-blur-md text-xs font-mono text-black tracking-widest hover:bg-black hover:text-white hover:border-black transition-all duration-300 rounded-none uppercase absolute md:relative bottom-24 md:bottom-auto right-6 md:right-auto"
+                className="pointer-events-auto flex items-center gap-2 px-6 py-3 border border-zinc-300 bg-white/60 backdrop-blur-md text-xs font-mono text-black tracking-widest hover:bg-black hover:text-white hover:border-black transition-all duration-300 rounded-none uppercase hidden md:flex"
               >
                 <span>DOCS ↗</span>
               </a>

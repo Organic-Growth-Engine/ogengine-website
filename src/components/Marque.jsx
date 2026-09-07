@@ -11,11 +11,11 @@ function Marquee() {
             <span className="text-[#d4d4d8]">✦</span>
             <img src="/2d logo.jpeg" alt="logo" className="h-7 md:h-10 object-contain" />
             <span className="text-[#d4d4d8]">✦</span>
-            <span>THE FUTURE OF <span className="text-red-600 font-bold">GRAPHICS</span></span>
+            <span>THE FUTURE OF <span className="font-bold" style={{ color: '#C98A2E' }}>GRAPHICS</span></span>
             <span className="text-[#d4d4d8]">✦</span>
             <img src="/2d logo.jpeg" alt="logo" className="h-7 md:h-10 object-contain" />
             <span className="text-[#d4d4d8]">✦</span>
-            <span>WEBGPU <span className="text-red-600 font-bold">LIVE</span></span>
+            <span>WEBGPU <span className="font-bold" style={{ color: '#C98A2E' }}>LIVE</span></span>
             <span className="text-[#d4d4d8]">✦</span>
             <img src="/2d logo.jpeg" alt="logo" className="h-7 md:h-10 object-contain" />
             <span className="text-[#d4d4d8]">✦</span>
@@ -29,11 +29,11 @@ function Marquee() {
             <span className="text-[#d4d4d8]">✦</span>
             <img src="/2d logo.jpeg" alt="logo" className="h-7 md:h-10 object-contain" />
             <span className="text-[#d4d4d8]">✦</span>
-            <span>THE FUTURE OF <span className="text-red-600 font-bold">GRAPHICS</span></span>
+            <span>THE FUTURE OF <span className="font-bold" style={{ color: '#C98A2E' }}>GRAPHICS</span></span>
             <span className="text-[#d4d4d8]">✦</span>
             <img src="/2d logo.jpeg" alt="logo" className="h-7 md:h-10 object-contain" />
             <span className="text-[#d4d4d8]">✦</span>
-            <span>WEBGPU <span className="text-red-600 font-bold">LIVE</span></span>
+            <span>WEBGPU <span className="font-bold" style={{ color: '#C98A2E' }}>LIVE</span></span>
             <span className="text-[#d4d4d8]">✦</span>
             <img src="/2d logo.jpeg" alt="logo" className="h-7 md:h-10 object-contain" />
             <span className="text-[#d4d4d8]">✦</span>

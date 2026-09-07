@@ -55,9 +55,9 @@ function Eye() {
 export default function EyesCTA() {
   return (
     <section className="relative min-h-[70vh] flex flex-col justify-center items-center bg-white py-20 sm:py-28 md:py-36 text-center overflow-hidden">
-      <div className="flex flex-col items-center justify-center px-6 w-full">
+      <div className="flex flex-col items-center justify-center px-6 w-full max-w-[1440px] mx-auto">
         {/* Main Heading */}
-        <h2 className="text-5xl xs:text-6xl sm:text-7xl lg:text-[120px] pointer-events-none font-heading font-black leading-[0.9] text-black uppercase tracking-tight">
+        <h2 className="text-4xl xs:text-5xl sm:text-6xl lg:text-[clamp(5rem,8vw,120px)] pointer-events-none font-heading font-black leading-[0.9] text-black uppercase tracking-tight text-center">
           READY TO
           <br />
           BUILD THE
