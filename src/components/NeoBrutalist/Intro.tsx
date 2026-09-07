@@ -1,9 +1,8 @@
-'use client';
+"use client";
 
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import AsciiScramble from './AsciiScramble';
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,10 +11,11 @@ export default function Intro() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const lines = gsap.utils.toArray('.intro-line-wrap');
-      
+      const lines = gsap.utils.toArray(".intro-line-wrap");
+
       lines.forEach((line: any) => {
-        gsap.fromTo(line.querySelectorAll('.char'), 
+        gsap.fromTo(
+          line.querySelectorAll(".char"),
           { y: 100, opacity: 0, rotateX: -90 },
           {
             y: 0,
@@ -28,49 +28,55 @@ export default function Intro() {
               trigger: line,
               start: "top 80%",
               toggleActions: "play reverse play reverse",
-            }
-          }
+            },
+          },
         );
       });
-
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-32 md:py-56 bg-white text-[#0a0a0a] overflow-hidden px-4">
+    <section
+      ref={sectionRef}
+      className="py-32 md:py-56 bg-white text-[#0a0a0a] overflow-hidden px-4"
+    >
       <div className="container mx-auto">
-        
         <div className="flex flex-col text-[7vw] md:text-[6vw] leading-[1.1] font-heading uppercase font-bold tracking-tight">
-          
           <div className="intro-line-wrap overflow-hidden flex flex-wrap items-baseline gap-4">
-             <AsciiScramble text="We" className="char" />
-             <AsciiScramble text="don't just" className="char font-serif italic font-light text-zinc-400 lowercase" />
-             <AsciiScramble text="build" className="char" />
+            <span className="char">From</span>
+            <span className="char font-serif italic font-light text-zinc-400 lowercase">
+              first idea
+            </span>
+            <span className="char">to</span>
           </div>
 
           <div className="intro-line-wrap overflow-hidden flex flex-wrap items-baseline gap-4 pl-[5vw]">
-             <AsciiScramble text="Digital" className="char text-[#DC2626]" />
-             <AsciiScramble text="Experiences." className="char" />
+            <span className="char text-[#DC2626]">Loyal</span>
+            <span className="char">customer.</span>
           </div>
 
           <div className="intro-line-wrap overflow-hidden flex flex-wrap items-baseline gap-4">
-             <AsciiScramble text="We" className="char" />
-             <AsciiScramble text="engineer" className="char font-serif italic font-light text-black lowercase" />
-             <AsciiScramble text="Cults." className="char" />
+            <span className="char">One</span>
+            <span className="char font-serif italic font-light text-black lowercase">
+              Connected
+            </span>
+            <span className="char">System.</span>
           </div>
-
         </div>
 
         <div className="mt-32 w-full flex justify-end">
           <div className="w-full md:w-1/3 text-lg md:text-xl font-light text-zinc-500 font-mono leading-relaxed border-l border-zinc-300 pl-8">
             <p>
-              In the age of templates, <span className="text-black italic font-serif">chaos is currency</span>. We strip away the non-essential to reveal the raw, beating heart of your brand.
+              OG is built to solve,{" "}
+              <span className="text-black italic font-serif">
+                the whole puzzle
+              </span>
+              . so that nothing is missed in the MOSS lifecycles.
             </p>
           </div>
         </div>
-
       </div>
     </section>
   );

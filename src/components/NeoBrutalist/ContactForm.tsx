@@ -1,33 +1,36 @@
-'use client';
+"use client";
 
-import React, { useState, useRef } from 'react';
-import { Send } from 'lucide-react';
-import { soundManager } from '@/lib/sound';
-import AsciiScramble from './AsciiScramble';
+import React, { useState, useRef } from "react";
+import { Send } from "lucide-react";
 
 export default function ContactForm() {
   const sectionRef = useRef<HTMLElement>(null);
 
   const [formData, setFormData] = useState({
-    name: '',
-    brandName: '',
-    email: '',
-    phone: '',
-    message: '',
+    name: "",
+    brandName: "",
+    email: "",
+    phone: "",
+    message: "",
   });
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
-
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "success" | "error"
+  >("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email) return;
-    setStatus('sending');
-    soundManager.playClick();
+    setStatus("sending");
     // Simulate submission
     setTimeout(() => {
-      setStatus('success');
-      soundManager.playChime();
-      setFormData({ name: '', brandName: '', email: '', phone: '', message: '' });
+      setStatus("success");
+      setFormData({
+        name: "",
+        brandName: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
     }, 1500);
   };
 
@@ -48,30 +51,38 @@ export default function ContactForm() {
           </div>
 
           <h3 className="text-black font-heading font-black text-3xl sm:text-4xl lg:text-5xl leading-tight uppercase tracking-tight">
-            <AsciiScramble text="Let's " /><span className="text-[#DC2626]"><AsciiScramble text="Build" /></span>
+            Let's <span className="text-[#DC2626]">Build</span>
             <br />
-            <AsciiScramble text="Something" />
+            Something
             <br />
-            <span className="text-zinc-500"><AsciiScramble text="Together." /></span>
+            <span className="text-zinc-500">Together.</span>
           </h3>
 
           <p className="text-sm sm:text-base font-mono mt-6 mb-8 max-w-md text-zinc-500 leading-relaxed">
-            Ready to push the boundaries of real-time rendering? Share your details and tell us about your project.
+            Ready to push the boundaries of real-time rendering? Share your
+            details and tell us about your project.
           </p>
 
           <a
             href="https://github.com/AbhishekChoudharyy/OGengine"
             target="_blank"
             rel="noopener noreferrer"
-            onMouseEnter={() => soundManager.playHover()}
-            onClick={() => soundManager.playClick()}
             className="group inline-flex items-center gap-3 w-fit"
           >
             <span className="px-8 py-3 bg-black text-white font-heading font-bold text-sm uppercase tracking-wider hover:bg-zinc-800 transition-colors duration-300">
               View on GitHub
             </span>
             <span className="w-10 h-10 bg-black flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <path d="M7 17L17 7M17 7H7M17 7V17" />
               </svg>
             </span>
@@ -80,23 +91,33 @@ export default function ContactForm() {
 
         {/* RIGHT FORM */}
         <div>
-          {status === 'success' ? (
+          {status === "success" ? (
             <div className="flex flex-col items-center justify-center text-center py-16 space-y-6 border border-zinc-200 bg-zinc-50/50 backdrop-blur-sm">
               <div className="w-16 h-16 rounded-full bg-black/5 border border-black/10 flex items-center justify-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="black"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <path d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-heading font-bold text-black uppercase">Message Sent!</h3>
+              <h3 className="text-2xl font-heading font-bold text-black uppercase">
+                Message Sent!
+              </h3>
               <p className="text-zinc-500 text-sm font-mono max-w-sm">
-                Thank you for reaching out. We&apos;ll get back to you within 24 hours.
+                Thank you for reaching out. We&apos;ll get back to you within 24
+                hours.
               </p>
               <button
                 onClick={() => {
-                  soundManager.playClick();
-                  setStatus('idle');
+                  setStatus("idle");
                 }}
-                onMouseEnter={() => soundManager.playHover()}
                 className="text-xs font-mono text-zinc-400 hover:text-black underline transition-colors"
               >
                 Send another message
@@ -105,29 +126,71 @@ export default function ContactForm() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <FormInput label="Name" name="name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} required />
-                <FormInput label="Brand / Company" name="brandName" value={formData.brandName} onChange={(e) => setFormData({ ...formData, brandName: e.target.value })} />
+                <FormInput
+                  label="Name"
+                  name="name"
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
+                  required
+                />
+                <FormInput
+                  label="Brand / Company"
+                  name="brandName"
+                  value={formData.brandName}
+                  onChange={(e) =>
+                    setFormData({ ...formData, brandName: e.target.value })
+                  }
+                />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <FormInput label="Email" name="email" type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
-                <FormInput label="Phone" name="phone" type="tel" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
+                <FormInput
+                  label="Email"
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                  required
+                />
+                <FormInput
+                  label="Phone"
+                  name="phone"
+                  type="tel"
+                  value={formData.phone}
+                  onChange={(e) =>
+                    setFormData({ ...formData, phone: e.target.value })
+                  }
+                />
               </div>
 
-              <FormInput label="Your Message" name="message" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
+              <FormInput
+                label="Your Message"
+                name="message"
+                value={formData.message}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
+              />
 
               <button
                 type="submit"
-                disabled={status === 'sending'}
-                onMouseEnter={() => soundManager.playHover()}
+                disabled={status === "sending"}
                 className="w-full bg-black text-white font-heading uppercase font-bold py-4 px-6 border border-black hover:bg-white hover:text-black transition-all duration-300 cursor-pointer flex items-center justify-center gap-3 shadow-[4px_4px_0px_0px_#a1a1aa] hover:shadow-[4px_4px_0px_0px_#000000] active:shadow-none active:translate-x-[2px] active:translate-y-[2px]"
               >
-                <span>{status === 'sending' ? 'Sending...' : 'Send Message'}</span>
+                <span>
+                  {status === "sending" ? "Sending..." : "Send Message"}
+                </span>
                 <Send className="h-4 w-4" />
               </button>
 
-              {status === 'error' && (
-                <p className="text-red-400 text-xs font-mono">Something went wrong. Please try again.</p>
+              {status === "error" && (
+                <p className="text-red-400 text-xs font-mono">
+                  Something went wrong. Please try again.
+                </p>
               )}
             </form>
           )}
@@ -146,7 +209,7 @@ export default function ContactForm() {
 function FormInput({
   label,
   name,
-  type = 'text',
+  type = "text",
   value,
   onChange,
   required = false,
@@ -168,8 +231,6 @@ function FormInput({
         required={required}
         placeholder={label}
         autoComplete="off"
-        onFocus={() => soundManager.playClick()}
-        onMouseEnter={() => soundManager.playHover()}
         className="
           peer
           w-full
