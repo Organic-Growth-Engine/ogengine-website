@@ -30,7 +30,6 @@ const services = [
     id: 4,
     title: "Acquire and Convert",
     category: "Development",
-    img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2000",
     desc: "Before you build, know what is worth building. Every strong business starts with clarity. We turn ideas into validated opportunities by understanding the market, the competition, the audience and where your business can claim a meaningful position.",
   },
   {
@@ -43,7 +42,6 @@ const services = [
     id: 6,
     title: "Learn and Improve",
     category: "Marketing",
-    img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2000",
     desc: "Your growth engine should get smarter over time. Every campaign, customer and conversion creates valuable data. We turn those insights into actions continuously improving your marketing, sales and operations so your business becomes more efficient and more profitable.",
   },
 ];
