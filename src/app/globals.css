@@ -363,10 +363,22 @@ body {
 }
 
 .hero-logo {
-  width: clamp(200px, 28vw, 440px);
+  width: clamp(190px, 28vw, 440px);
   height: auto;
   user-select: none;
   pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  .hero-logo {
+    width: clamp(170px, 48vw, 230px);
+  }
+}
+
+@media (min-width: 1536px) {
+  .hero-logo {
+    width: clamp(360px, 27vw, 500px);
+  }
 }
 
 @keyframes hero-float {
@@ -415,7 +427,7 @@ body {
 /* Editorial Word — Oil Amber Fluid Glass Hover */
 .editorial-word {
   cursor: pointer;
-  color: #C98A2E;
+  color: #c98a2e;
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-block;
   position: relative;
@@ -424,11 +436,11 @@ body {
 .editorial-word:hover {
   background: linear-gradient(
     135deg,
-    #C98A2E 0%,
-    #A06E1D 30%,
-    #E0A840 50%,
-    #8B5E15 70%,
-    #C98A2E 100%
+    #c98a2e 0%,
+    #a06e1d 30%,
+    #e0a840 50%,
+    #8b5e15 70%,
+    #c98a2e 100%
   );
   background-size: 200% 200%;
   -webkit-background-clip: text;
@@ -491,7 +503,7 @@ body {
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, #C98A2E 0%, #E0A840 50%, #C98A2E 100%);
+  background: linear-gradient(90deg, #c98a2e 0%, #e0a840 50%, #c98a2e 100%);
 }
 
 /* Visible state */
