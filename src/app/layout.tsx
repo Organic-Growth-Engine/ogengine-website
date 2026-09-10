@@ -2,17 +2,17 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "OGengine | Real-Time Graphics & Game Engine",
+  title: "OG Engine | MOSS Automation Softwares",
   description:
-    "A high-performance, developer-first 3D engine designed for WebGPU & Vulkan native platforms.",
+    "A tool suite for MOSS Automation Softwares designed as per the required Infrastructure.",
   keywords: [
-    "WebGPU",
-    "3D Engine",
-    "Game Engine",
-    "Graphics",
-    "Real-time Rendering",
-    "Three.js",
-    "React",
+    "Automation",
+    "AI",
+    "MOSS",
+    "Marekting",
+    "Operations",
+    "Sales",
+    "SaaS",
   ],
   authors: [{ name: "OGengine" }],
   creator: "OGengine",
@@ -22,12 +22,12 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://ogengine.com"),
+  metadataBase: new URL("https://ogengine.co"),
   openGraph: {
-    title: "OGengine | Real-Time Graphics & Game Engine",
+    title: "OGengine | MOSS Automation Softwares",
     description:
-      "A high-performance, developer-first 3D engine designed for WebGPU & Vulkan native platforms.",
-    url: "https://ogengine.com",
+      "A tool suite for MOSS Automation Softwares designed as per the required Infrastructure.",
+    url: "https://ogengine.co",
     siteName: "OGengine",
     images: [
       {
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "OGengine | Real-Time Graphics & Game Engine",
+    title: "OGengine | MOSS Automation Softwares",
     description:
-      "A high-performance, developer-first 3D engine designed for WebGPU & Vulkan native platforms.",
+      "A tool suite for MOSS Automation Softwares designed as per the required Infrastructure.",
     images: ["/og.png"],
     creator: "@ogengine",
   },
