@@ -13,20 +13,23 @@ const columns = [
   {
     title: "Pages",
     links: [
-      { label: "All Products", href: "#services" },
+      { label: "All Products", href: "#work" },
       { label: "Pricing", href: "#contact" },
-      { label: "Blog", href: "#work" },
-      { label: "Careers", href: "#contact" },
+      { label: "Blog", href: "/blog" },
+      { label: "Careers", href: "/careers" },
     ],
   },
   {
     title: "Socials",
     links: [
-      { label: "Instagram", href: "https://instagram.com" },
-      { label: "Twitter", href: "https://twitter.com" },
-      { label: "YouTube", href: "https://youtube.com" },
-      { label: "LinkedIn", href: "https://linkedin.com" },
-      { label: "Discord", href: "https://discord.com" },
+      { label: "Instagram", href: "https://www.instagram.com/og.engine/" },
+      { label: "Twitter", href: " https://x.com/Ogengine" },
+      { label: "YouTube", href: "https://www.youtube.com/@OGENGINE" },
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/og-engine-3a995b435/?isSelfProfile=true",
+      },
+      { label: "Discord", href: "https://discord.gg/hhzHQaU7" },
     ],
   },
   {
@@ -50,7 +53,10 @@ const columns = [
 
 export default function Footer() {
   return (
-    <footer className="min-h-[calc(100svh-16px)] w-full overflow-hidden rounded-none bg-white px-4 sm:px-6 lg:px-8 py-14 text-[#0a0a0a]">
+    <footer
+      id="footer"
+      className="min-h-[calc(100svh-16px)] w-full overflow-hidden rounded-none bg-white px-4 sm:px-6 lg:px-8 py-14 text-[#0a0a0a]"
+    >
       <div className="relative flex min-h-[calc(100svh-128px)] flex-col border-t border-black/10 pt-16 sm:pt-[4.7vw] max-w-[1440px] mx-auto">
         <div className="relative z-10 grid grid-cols-2 gap-8 sm:gap-10 lg:grid-cols-[1.35fr_1fr_1fr_1fr_1fr] lg:gap-10">
           <div className="max-w-[370px]">
