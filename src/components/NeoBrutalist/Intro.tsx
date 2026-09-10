@@ -40,6 +40,7 @@ export default function Intro() {
   return (
     <section
       ref={sectionRef}
+      id="intro"
       className="py-32 md:py-56 bg-white text-[#0a0a0a] overflow-hidden px-4 sm:px-6 lg:px-8"
     >
       <div className="container mx-auto">

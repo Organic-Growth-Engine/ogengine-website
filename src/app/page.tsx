@@ -172,7 +172,7 @@ export default function Home() {
               <a
                 href="/"
                 className="text-base sm:text-lg md:text-xl tracking-[-0.02em] uppercase text-black cursor-pointer select-none no-underline"
-                style={{ fontFamily: "'Geist Mono'", fontWeight:200,}}
+                style={{ fontFamily: "'Geist Mono'", fontWeight: 200 }}
               >
                 Organic Growth Engine
               </a>
@@ -180,19 +180,19 @@ export default function Home() {
               {/* Right Nav */}
               <nav className="flex-1 flex flex-col items-end gap-1 text-[10px] sm:text-xs uppercase tracking-widest font-mono text-black">
                 <a
-                  href="#services"
+                  href="#work"
                   className="hover:opacity-50 transition-opacity cursor-pointer"
                 >
                   Tools
                 </a>
                 <a
-                  href="#work"
+                  href="#intro"
                   className="hover:opacity-50 transition-opacity cursor-pointer"
                 >
                   About Us
                 </a>
                 <a
-                  href="#contact"
+                  href="#footer"
                   className="hover:opacity-50 transition-opacity cursor-pointer"
                 >
                   Contact Us
@@ -302,9 +302,7 @@ export default function Home() {
 
               {/* Bottom Right: Docs Button */}
               <a
-                href="https://github.com/AbhishekChoudharyy/OGengine"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/docs"
                 className="pointer-events-auto flex items-center gap-2 px-6 py-3 border border-zinc-300 bg-white/60 backdrop-blur-md text-xs font-mono text-black tracking-widest hover:bg-black hover:text-white hover:border-black transition-all duration-300 rounded-none uppercase hidden md:flex"
               >
                 <span>DOCS ↗</span>

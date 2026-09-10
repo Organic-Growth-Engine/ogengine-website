@@ -23,6 +23,9 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL("https://ogengine.co"),
+  alternates: {
+    canonical: "https://ogengine.co",
+  },
   openGraph: {
     title: "OGengine | MOSS Automation Softwares",
     description:
@@ -49,7 +52,7 @@ export const metadata: Metadata = {
     creator: "@ogengine",
   },
   icons: {
-    icon: [{ url: "/og.png", sizes: "any", type: "image/png" }],
+    icon: [{ url: "/og.svg?v=2", sizes: "any", type: "image/svg+xml" }],
     apple: [{ url: "/og.png", sizes: "any", type: "image/png" }],
   },
   manifest: "/manifest.json",
@@ -75,10 +78,8 @@ export default function RootLayout({
         />
 
         {/* Additional favicon for better browser support */}
-        <link rel="icon" type="image/png" sizes="32x32" href="/og.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/og.png" />
+        <link rel="icon" type="image/svg+xml" href="/og.svg?v=2" />
         <link rel="apple-touch-icon" sizes="180x180" href="/og.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/og.png" />
       </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
