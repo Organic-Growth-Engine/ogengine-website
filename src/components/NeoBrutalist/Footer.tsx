@@ -23,7 +23,7 @@ const columns = [
     title: "Socials",
     links: [
       { label: "Instagram", href: "https://www.instagram.com/og.engine/" },
-      { label: "Twitter", href: " https://x.com/Ogengine" },
+      { label: "Twitter", href: "https://x.com/Ogengine" },
       { label: "YouTube", href: "https://www.youtube.com/@OGENGINE" },
       {
         label: "LinkedIn",
@@ -57,9 +57,9 @@ export default function Footer() {
       id="footer"
       className="min-h-[calc(100svh-16px)] w-full overflow-hidden rounded-none bg-white px-4 sm:px-6 lg:px-8 py-14 text-[#0a0a0a]"
     >
-      <div className="relative flex min-h-[calc(100svh-128px)] flex-col border-t border-black/10 pt-16 sm:pt-[4.7vw] max-w-[1440px] mx-auto">
-        <div className="relative z-10 grid grid-cols-2 gap-8 sm:gap-10 lg:grid-cols-[1.35fr_1fr_1fr_1fr_1fr] lg:gap-10">
-          <div className="max-w-[370px]">
+      <div className="relative mx-auto flex min-h-[calc(100svh-128px)] max-w-[1440px] flex-col border-t border-black/10 pt-12 sm:pt-[4.7vw] 2xl:max-w-[1600px]">
+        <div className="relative z-10 grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-10 lg:grid-cols-[1.35fr_1fr_1fr_1fr_1fr] lg:gap-10">
+          <div className="max-w-[370px] sm:col-span-2 lg:col-span-1">
             <Link
               href="/"
               className="flex items-center gap-1"

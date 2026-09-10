@@ -3,6 +3,8 @@
 import { useEffect, useRef, useCallback, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Menu, Search, X } from "lucide-react";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 import Marquee from "@/components/Marque";
@@ -20,6 +22,7 @@ export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
   const logoContainerRef = useRef<HTMLDivElement>(null);
   const [mossOpen, setMossOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const topLogoRef = useRef<HTMLDivElement>(null);
 
@@ -112,12 +115,12 @@ export default function Home() {
       {/* SECTION 1: HERO */}
       <section
         ref={heroRef}
-        className="relative min-h-screen flex flex-col justify-between overflow-hidden bg-white"
+        className="relative min-h-[100svh] flex flex-col justify-between overflow-hidden bg-white md:min-h-screen"
       >
-        <div className="relative w-full h-full min-h-screen max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 flex flex-col justify-between">
+        <div className="relative w-full h-full min-h-[100svh] max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-5 sm:px-10 lg:px-16 xl:px-20 2xl:px-24 flex flex-col justify-between md:min-h-screen">
           {/* OG Logo */}
           <div
-            className="absolute inset-0 z-[1] flex items-center justify-center pointer-events-none"
+            className="absolute inset-x-0 top-[50%] z-[1] flex -translate-y-1/2 items-center justify-center pointer-events-none md:top-[47%] md:-translate-y-1/2"
             style={{ perspective: "1200px" }}
           >
             <div
@@ -140,10 +143,25 @@ export default function Home() {
 
           {/* Content Wrapper */}
           <div className="relative z-10 flex-1 flex flex-col justify-between w-full pointer-events-none">
+            {/* Compact mobile header */}
+            <div className="relative flex justify-start pt-5 pointer-events-auto md:hidden">
+              <button
+                type="button"
+                aria-label={
+                  mobileMenuOpen ? "Close navigation" : "Open navigation"
+                }
+                aria-expanded={mobileMenuOpen}
+                onClick={() => setMobileMenuOpen((open) => !open)}
+                className="border border-black p-3 text-black"
+              >
+                <Menu size={20} />
+              </button>
+            </div>
+
             {/* Top Bar — left nav + center brand + right nav like SEROTONINN */}
             <div
               ref={topLogoRef}
-              className="flex items-start justify-between w-full pt-6 md:pt-8 pointer-events-auto"
+              className="hidden items-start justify-between w-full pt-6 md:flex md:pt-8 pointer-events-auto"
               style={{ opacity: 0 }}
             >
               {/* Left Nav */}
@@ -169,13 +187,13 @@ export default function Home() {
               </nav>
 
               {/* Center Brand */}
-              <a
+              <Link
                 href="/"
                 className="text-base sm:text-lg md:text-xl tracking-[-0.02em] uppercase text-black cursor-pointer select-none no-underline"
                 style={{ fontFamily: "'Geist Mono'", fontWeight: 200 }}
               >
                 Organic Growth Engine
-              </a>
+              </Link>
 
               {/* Right Nav */}
               <nav className="flex-1 flex flex-col items-end gap-1 text-[10px] sm:text-xs uppercase tracking-widest font-mono text-black">
@@ -201,7 +219,7 @@ export default function Home() {
             </div>
 
             {/* Big Editorial Text — Left Side (upper) */}
-            <div className="absolute left-6 sm:left-10 lg:left-16 xl:left-20 top-[28%] sm:top-[25%] z-20 max-w-[180px] sm:max-w-[240px] md:max-w-[280px] lg:max-w-[320px] pointer-events-auto">
+            <div className="hidden absolute left-6 sm:left-10 lg:left-16 xl:left-20 top-[24%] z-20 max-w-[180px] sm:max-w-[240px] md:max-w-[280px] lg:max-w-[320px] pointer-events-auto md:block">
               <h2
                 className="text-[5vw] sm:text-[3.5vw] md:text-[2.8vw] lg:text-[clamp(1.4rem,2vw,2rem)] leading-[0.95] uppercase text-black flex flex-wrap"
                 style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 400 }}
@@ -222,7 +240,7 @@ export default function Home() {
             </div>
 
             {/* Big Editorial Text — Right Side (lower) */}
-            <div className="absolute right-6 sm:right-10 lg:right-16 xl:right-20 top-[60%] sm:top-[60%] z-20 max-w-[200px] sm:max-w-[280px] md:max-w-[340px] lg:max-w-[360px] pointer-events-auto">
+            <div className="hidden absolute right-6 sm:right-10 lg:right-16 xl:right-20 top-[68%] z-20 max-w-[200px] sm:max-w-[280px] md:max-w-[340px] lg:max-w-[360px] pointer-events-auto md:block">
               <h2
                 className="text-[5vw] sm:text-[3.5vw] md:text-[2.8vw] lg:text-[clamp(1.4rem,2vw,2rem)] leading-[0.95] uppercase text-black flex flex-wrap justify-end"
                 style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 400 }}
@@ -266,7 +284,7 @@ export default function Home() {
             {/* Bottom Layout HUD */}
             <div
               ref={bottomBarRef}
-              className="w-full flex flex-col md:flex-row items-center justify-center md:justify-between pb-8 md:pb-12 pointer-events-none select-none gap-4 md:gap-0"
+              className="hidden w-full flex-col items-center justify-center pb-8 pointer-events-none select-none gap-4 md:flex md:flex-row md:justify-between md:pb-12"
               style={{ opacity: 0 }}
             >
               {/* Bottom Left: Scroll to explore */}
@@ -303,14 +321,108 @@ export default function Home() {
               {/* Bottom Right: Docs Button */}
               <a
                 href="/docs"
-                className="pointer-events-auto flex items-center gap-2 px-6 py-3 border border-zinc-300 bg-white/60 backdrop-blur-md text-xs font-mono text-black tracking-widest hover:bg-black hover:text-white hover:border-black transition-all duration-300 rounded-none uppercase hidden md:flex"
+                className="pointer-events-auto hidden items-center gap-2 px-6 py-3 border border-zinc-300 bg-white/60 backdrop-blur-md text-xs font-mono text-black tracking-widest hover:bg-black hover:text-white hover:border-black transition-all duration-300 rounded-none uppercase md:flex"
               >
                 <span>DOCS ↗</span>
               </a>
             </div>
+
+            {/* Mobile hero content uses normal flow to prevent overlap. */}
+            <div className="flex flex-1 flex-col justify-between pb-6 pt-[16svh] pointer-events-auto md:hidden">
+              <div>
+                <h2
+                  className="max-w-[18rem] text-[clamp(1.65rem,7.5vw,2.4rem)] leading-[0.95] uppercase text-black"
+                  style={{
+                    fontFamily: "'Oswald', sans-serif",
+                    fontWeight: 400,
+                  }}
+                >
+                  <span className="editorial-word mr-[0.25em]">Young</span>
+                  <span className="editorial-word mr-[0.25em]">
+                    founders
+                  </span>{" "}
+                  building infra we wish existed.
+                </h2>
+                <h2
+                  className="ml-auto mt-[24svh] max-w-[18rem] text-right text-[clamp(1.65rem,7.5vw,2.4rem)] leading-[0.95] uppercase text-black"
+                  style={{
+                    fontFamily: "'Oswald', sans-serif",
+                    fontWeight: 400,
+                  }}
+                >
+                  Full-stack <span className="editorial-word">MOSS,</span>{" "}
+                  essentially autonomous.
+                </h2>
+              </div>
+
+              <div className="flex items-end justify-between gap-4 pt-8">
+                <a
+                  href="#intro"
+                  className="font-mono text-[10px] uppercase tracking-[0.16em] text-zinc-500"
+                >
+                  Scroll to explore ↓
+                </a>
+                <a
+                  href="/docs"
+                  className="border border-black px-4 py-3 font-mono text-[10px] uppercase tracking-widest text-black"
+                >
+                  Docs ↗
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-50 flex bg-black/10 md:hidden">
+          <div className="flex h-full w-[min(78vw,360px)] flex-col rounded-r-[8px] bg-white px-8 pb-10 pt-7 text-black shadow-2xl">
+            <div className="flex items-center justify-between">
+              <button
+                type="button"
+                aria-label="Close navigation"
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-1 text-black"
+              >
+                <X size={28} strokeWidth={2.5} />
+              </button>
+              <span className="p-1 text-black" aria-hidden="true">
+                <Search size={28} strokeWidth={2} />
+              </span>
+            </div>
+
+            <nav
+              aria-label="Mobile navigation"
+              className="mt-14 flex flex-col gap-7 font-sans text-[1.35rem] leading-none tracking-[-0.03em]"
+            >
+              <a href="#services" onClick={() => setMobileMenuOpen(false)}>
+                Events
+              </a>
+              <a href="#work" onClick={() => setMobileMenuOpen(false)}>
+                Media
+              </a>
+              <a href="#contact" onClick={() => setMobileMenuOpen(false)}>
+                Influencer Marketing
+              </a>
+              <a href="#work" onClick={() => setMobileMenuOpen(false)}>
+                Tools
+              </a>
+              <a href="#intro" onClick={() => setMobileMenuOpen(false)}>
+                About Us
+              </a>
+              <a href="#footer" onClick={() => setMobileMenuOpen(false)}>
+                Contact Us
+              </a>
+            </nav>
+          </div>
+          <button
+            type="button"
+            aria-label="Close navigation"
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex-1 cursor-default"
+          />
+        </div>
+      )}
 
       {/* Original Marquee right after Hero */}
       <Marquee />

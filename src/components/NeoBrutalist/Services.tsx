@@ -78,19 +78,15 @@ export default function Services() {
     return () => ctx.revert();
   }, []);
 
-
-
   return (
     <section
       ref={sectionRef}
       id="services"
-      className="py-24 bg-white text-[#0a0a0a] relative z-10 overflow-hidden"
+      className="relative z-10 overflow-hidden bg-white py-16 text-[#0a0a0a] sm:py-20 lg:py-24"
     >
-
-
       <div className="container mx-auto relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-start mb-20">
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 md:mb-0 font-heading">
+        <div className="mb-14 flex flex-col items-start justify-between sm:mb-16 md:mb-20 md:flex-row">
+          <h2 className="mb-6 font-heading text-[clamp(2.75rem,10vw,5.5rem)] font-bold leading-[0.9] sm:mb-8 md:mb-0 lg:text-8xl">
             Our
             <br />
             Infrastructure
@@ -105,37 +101,36 @@ export default function Services() {
             <li
               key={service.id}
               className="group border-b border-zinc-300 relative overflow-hidden cursor-pointer"
-
               onClick={() => {
                 setOpenIndex(openIndex === idx ? null : idx);
               }}
             >
-              <div className="relative z-10 flex justify-between items-center py-12 px-4 group-hover:px-8 transition-all duration-500">
-                <div className="flex items-baseline gap-8">
-                  <span className="text-xs font-mono text-zinc-400 group-hover:text-black transition-colors">
+              <div className="relative z-10 flex items-center justify-between gap-4 px-2 py-7 transition-all duration-500 group-hover:px-3 sm:gap-6 sm:px-4 sm:py-9 md:py-12 md:group-hover:px-8">
+                <div className="flex min-w-0 items-baseline gap-3 sm:gap-6 md:gap-8">
+                  <span className="shrink-0 text-xs font-mono text-zinc-400 transition-colors group-hover:text-black">
                     0{service.id}
                   </span>
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl group-hover:text-black transition-colors group-hover:translate-x-4 duration-500">
+                  <h3 className="min-w-0 text-[clamp(1.25rem,5vw,2rem)] leading-tight transition-colors duration-500 group-hover:text-black sm:text-3xl md:text-4xl lg:text-5xl md:group-hover:translate-x-4">
                     {service.title}
                   </h3>
                 </div>
 
-                <div className="flex items-center gap-4">
-                  <span className="text-xs uppercase tracking-widest opacity-0 md:opacity-100 group-hover:text-black transition-all transform translate-y-4 group-hover:translate-y-0 duration-500 delay-75">
+                <div className="flex shrink-0 items-center gap-2 sm:gap-4">
+                  <span className="hidden text-xs uppercase tracking-widest transition-all duration-500 group-hover:text-black md:block md:translate-y-4 md:opacity-100 md:group-hover:translate-y-0">
                     {service.category}
                   </span>
                   <ArrowUpRight
-                    className={`w-8 h-8 text-zinc-400 transition-all duration-500 ${openIndex === idx ? "text-black rotate-90" : "group-hover:text-black group-hover:rotate-45"}`}
+                    className={`h-6 w-6 shrink-0 text-zinc-400 transition-all duration-500 sm:h-7 sm:w-7 md:h-8 md:w-8 ${openIndex === idx ? "rotate-90 text-black" : "group-hover:rotate-45 group-hover:text-black"}`}
                   />
                 </div>
               </div>
 
               {/* Dropdown Paragraph container */}
               <div
-                className={`overflow-hidden transition-all duration-500 ease-out ${openIndex === idx ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0"}`}
+                className={`overflow-hidden transition-all duration-500 ease-out ${openIndex === idx ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}`}
               >
-                <div className="pb-12 pl-4 pr-4 md:pl-[120px] max-w-3xl">
-                  <p className="text-base md:text-lg lg:text-xl leading-relaxed font-light text-zinc-400">
+                <div className="max-w-3xl pb-8 pl-10 pr-4 sm:pb-10 sm:pl-16 md:pb-12 md:pl-[120px]">
+                  <p className="text-sm font-light leading-relaxed text-zinc-400 sm:text-base md:text-lg lg:text-xl">
                     {service.desc}
                   </p>
                 </div>
