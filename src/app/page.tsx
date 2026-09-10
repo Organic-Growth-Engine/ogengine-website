@@ -344,7 +344,7 @@ export default function Home() {
                   building infra we wish existed.
                 </h2>
                 <h2
-                  className="ml-auto mt-[24svh] max-w-[18rem] text-right text-[clamp(1.65rem,7.5vw,2.4rem)] leading-[0.95] uppercase text-black"
+                  className="ml-auto mt-[26svh] max-w-[18rem] text-right text-[clamp(1.65rem,7.5vw,2.4rem)] leading-[0.95] uppercase text-black"
                   style={{
                     fontFamily: "'Oswald', sans-serif",
                     fontWeight: 400,
