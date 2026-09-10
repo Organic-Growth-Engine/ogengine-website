@@ -328,7 +328,7 @@ export default function Home() {
             </div>
 
             {/* Mobile hero content uses normal flow to prevent overlap. */}
-            <div className="flex flex-1 flex-col justify-between pb-6 pt-[16svh] pointer-events-auto md:hidden">
+            <div className="flex flex-1 flex-col justify-between pb-6 pt-[18svh] pointer-events-auto md:hidden">
               <div>
                 <h2
                   className="max-w-[18rem] text-[clamp(1.65rem,7.5vw,2.4rem)] leading-[0.95] uppercase text-black"
