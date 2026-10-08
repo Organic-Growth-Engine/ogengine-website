@@ -166,24 +166,24 @@ export default function Home() {
             >
               {/* Left Nav */}
               <nav className="flex-1 flex flex-col gap-1 text-[10px] sm:text-xs uppercase tracking-widest font-mono text-black">
-                <a
-                  href="#services"
+                <Link
+                  href="/events"
                   className="hover:opacity-50 transition-opacity cursor-pointer"
                 >
                   Events
-                </a>
-                <a
-                  href="#work"
+                </Link>
+                <Link
+                  href="/media"
                   className="hover:opacity-50 transition-opacity cursor-pointer"
                 >
                   Media
-                </a>
-                <a
-                  href="#contact"
+                </Link>
+                <Link
+                  href="/influencer-marketing"
                   className="hover:opacity-50 transition-opacity cursor-pointer"
                 >
                   Influencer Marketing
-                </a>
+                </Link>
               </nav>
 
               {/* Center Brand */}
@@ -395,15 +395,18 @@ export default function Home() {
               aria-label="Mobile navigation"
               className="mt-14 flex flex-col gap-7 font-sans text-[1.35rem] leading-none tracking-[-0.03em]"
             >
-              <a href="#services" onClick={() => setMobileMenuOpen(false)}>
+              <Link href="/events" onClick={() => setMobileMenuOpen(false)}>
                 Events
-              </a>
-              <a href="#work" onClick={() => setMobileMenuOpen(false)}>
+              </Link>
+              <Link href="/media" onClick={() => setMobileMenuOpen(false)}>
                 Media
-              </a>
-              <a href="#contact" onClick={() => setMobileMenuOpen(false)}>
+              </Link>
+              <Link
+                href="/influencer-marketing"
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 Influencer Marketing
-              </a>
+              </Link>
               <a href="#work" onClick={() => setMobileMenuOpen(false)}>
                 Tools
               </a>
