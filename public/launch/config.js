@@ -7,7 +7,6 @@ window.OG_CONFIG = {
     linkedin: null,
     youtube: null
   },
-  // Optional POST endpoint accepting JSON { email, website }.
-  // Set only after connecting your own server and publishing your privacy notice.
-  waitlistEndpoint: null
+  
+  waitlistEndpoint: "/api/waitlist"
 };
