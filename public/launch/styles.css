@@ -7,7 +7,7 @@
   --gold: #d7a34c;
 }
 * { box-sizing: border-box; }
-html { background: var(--paper); }
+html { background: var(--paper); zoom: .8; }
 body { margin: 0; color: var(--ink); font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
 button, input { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
@@ -17,7 +17,7 @@ a[aria-disabled="true"] { cursor: default; }
 button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid #9c702a; outline-offset: 6px; }
 .skip-link { position: absolute; top: -80px; left: 24px; padding: 12px; background: white; z-index: 20; }
 .skip-link:focus { top: 10px; }
-.site { max-width: 1920px; margin: auto; min-height: 100svh; display: flex; flex-direction: column; }
+.site { max-width: 1920px; margin: auto; min-height: 125svh; display: flex; flex-direction: column; }
 .header { padding: 27px 6%; display: flex; justify-content: space-between; align-items: center; min-height: 90px; gap: 25px; z-index: 2; }
 .brand { display: inline-flex; align-items: center; gap: 18px; font-size: 16px; letter-spacing: .01em; font-weight: 700; white-space: nowrap; }
 .brand img { width: 70px; height: 35px; object-fit: contain; filter: grayscale(1) brightness(.22); }
