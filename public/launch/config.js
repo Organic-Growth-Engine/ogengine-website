@@ -1,6 +1,7 @@
 
 window.OG_CONFIG = {
   links: {
+    chat: "https://www.instagram.com/og.engine/",
     instagram: "https://www.instagram.com/og.engine/",
     x: "https://x.com/Ogengine",
     linkedin: "https://www.linkedin.com/in/og-engine-3a995b435/",

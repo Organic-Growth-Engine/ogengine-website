@@ -7,20 +7,26 @@
   <meta name="theme-color" content="#fdfdfc">
   <meta name="description" content="A better growth system. The next chapter of organic growth is on its way.">
   <title>OG Engine — A better growth system.</title>
+
   <link rel="icon" href="/launch/assets/og-logo.png">
   <link rel="stylesheet" href="/launch/styles.css">
+
   <script src="/launch/config.js" defer></script>
   <script src="/launch/script.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+
   <div class="site">
     <header class="header">
       <a class="brand" href="/" aria-label="OG Engine home">
         <img src="/launch/assets/og-logo.png" width="1774" height="887" alt="">
       </a>
+
       <nav class="navigation" aria-label="Main navigation">
-        <span class="launch"><i aria-hidden="true"></i> Launching soon</span>
+        <span class="launch">
+          <i aria-hidden="true"></i> Launching soon
+        </span>
         <span class="nav-divider" aria-hidden="true"></span>
         <button type="button" data-dialog="about">About</button>
       </nav>
@@ -29,60 +35,169 @@
     <main id="main">
       <section class="hero" aria-labelledby="headline">
         <div class="dot-field" aria-hidden="true"></div>
+
         <div class="hero-copy">
           <p class="eyebrow">Organic Growth Engine</p>
+
           <h1 id="headline">A better growth system.</h1>
-          <p class="tagline">The next chapter of organic growth is on its way.</p>
+
+          <p class="tagline">
+            The next chapter of organic growth is on its way.
+          </p>
+
           <div class="actions">
-            <button class="button button-primary" type="button" data-dialog="join">Join us <span aria-hidden="true">↗</span></button>
+            <button
+              class="button button-primary"
+              type="button"
+              data-dialog="join"
+            >
+              Join us
+              <span aria-hidden="true">↗</span>
+            </button>
+
+            <a
+              class="button button-secondary"
+              data-link="chat"
+              aria-disabled="true"
+              title="Chat with us on Instagram"
+            >
+              Chat with us
+              <span aria-hidden="true">↗</span>
+            </a>
           </div>
         </div>
+
         <div class="logo-stage" aria-hidden="true">
           <div class="arch arch-outer"></div>
           <div class="arch arch-inner"></div>
           <div class="axis"></div>
           <div class="ground-glow"></div>
           <div class="contact-shadow"></div>
-          <img class="hero-logo" src="/launch/assets/og-logo.png" width="1774" height="887" alt="" fetchpriority="high">
+
+          <img
+            class="hero-logo"
+            src="/launch/assets/og-logo.png"
+            width="1774"
+            height="887"
+            alt=""
+            fetchpriority="high"
+          >
         </div>
       </section>
     </main>
 
     <footer class="footer">
       <span class="copyright">© 2026 OG Engine</span>
-      <p class="signature"><span aria-hidden="true">—</span> People <b>×</b> AI <b>×</b> Growth <span aria-hidden="true">—</span></p>
+
+      <p class="signature">
+        <span aria-hidden="true">—</span>
+        People <b>×</b> AI <b>×</b> Growth
+        <span aria-hidden="true">—</span>
+      </p>
+
       <nav class="socials" aria-label="Social links">
-        <a data-link="instagram" aria-disabled="true" title="Instagram link coming soon">Instagram</a>
-        <a data-link="x" aria-disabled="true" title="X link coming soon">X</a>
-        <a data-link="linkedin" aria-disabled="true" title="LinkedIn link coming soon">LinkedIn</a>
-        <a data-link="youtube" aria-disabled="true" title="YouTube link coming soon">YouTube</a>
-        <a data-link="discord" aria-disabled="true" title="Discord link coming soon">Discord</a>
+        <a
+          data-link="instagram"
+          aria-disabled="true"
+          title="Instagram"
+        >Instagram</a>
+
+        <a
+          data-link="x"
+          aria-disabled="true"
+          title="X"
+        >X</a>
+
+        <a
+          data-link="linkedin"
+          aria-disabled="true"
+          title="LinkedIn"
+        >LinkedIn</a>
+
+        <a
+          data-link="youtube"
+          aria-disabled="true"
+          title="YouTube"
+        >YouTube</a>
+
+        <a
+          data-link="discord"
+          aria-disabled="true"
+          title="Discord"
+        >Discord</a>
       </nav>
     </footer>
   </div>
 
   <dialog id="about" aria-labelledby="about-title">
-    <button class="close-dialog" type="button" aria-label="Close dialog">×</button>
+    <button
+      class="close-dialog"
+      type="button"
+      aria-label="Close dialog"
+    >×</button>
+
     <p class="eyebrow">Organic Growth Engine</p>
+
     <h2 id="about-title">People × AI × Growth</h2>
-    <p>The next chapter of organic growth is on its way.</p>
-    <p>More about OG Engine will be shared at launch.</p>
+
+    <p>
+      The next chapter of organic growth is on its way.
+    </p>
+
+    <p>
+      More about OG Engine will be shared at launch.
+    </p>
   </dialog>
 
   <dialog id="join" aria-labelledby="join-title">
-    <button class="close-dialog" type="button" aria-label="Close dialog">×</button>
+    <button
+      class="close-dialog"
+      type="button"
+      aria-label="Close dialog"
+    >×</button>
+
     <p class="eyebrow">OG Engine</p>
+
     <h2 id="join-title">Be part of what’s next.</h2>
-    <p id="signup-unavailable">Our waitlist will open soon. Please check back for updates.</p>
+
+    <p id="signup-unavailable">
+      Our waitlist will open soon. Please check back for updates.
+    </p>
+
     <form id="signup-form" hidden>
       <p>Join the waitlist for launch updates.</p>
+
       <label for="email">Email address</label>
-      <input id="email" type="email" name="email" required maxlength="254" autocomplete="email" placeholder="you@example.com">
+
+      <input
+        id="email"
+        type="email"
+        name="email"
+        required
+        maxlength="254"
+        autocomplete="email"
+        placeholder="you@example.com"
+      >
+
       <div class="honeypot" aria-hidden="true">
-        <input name="website" tabindex="-1" autocomplete="off" aria-label="Leave empty">
+        <input
+          name="website"
+          tabindex="-1"
+          autocomplete="off"
+          aria-label="Leave empty"
+        >
       </div>
-      <button class="button button-primary" type="submit">Join us <span aria-hidden="true">↗</span></button>
-      <p id="signup-status" role="status" aria-live="polite"></p>
+
+      <button class="button button-primary" type="submit">
+        Join us
+        <span aria-hidden="true">↗</span>
+      </button>
+
+      <p
+        id="signup-status"
+        role="status"
+        aria-live="polite"
+      ></p>
     </form>
   </dialog>
 </body>
