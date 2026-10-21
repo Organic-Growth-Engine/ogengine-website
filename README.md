@@ -1,3 +1,25 @@
+# OG Engine website
+
+The home URL serves the approved minimal launch page from `public/launch/` through
+a `beforeFiles` rewrite in `next.config.ts`. Existing application routes and the
+previous homepage source remain available in the repository. Remove that rewrite
+to restore the previous homepage. No dependencies were added for the launch page.
+
+## Launch page handoff
+
+- Run `npm ci`, then `npm run dev`; open http://localhost:3000.
+- Run `npm run build` and `npm start` for a production preview.
+- Edit `public/launch/index.html` and `styles.css` for copy and presentation.
+- Set contact and social destinations in `public/launch/config.js` when ready.
+- The waitlist is intentionally unconnected and collects no data. Integration
+  details are in `public/launch/README.md`.
+- Deploy with the repository's existing Next.js hosting setup. This change does
+  not create a deployment or alter hosting settings.
+- The page uses `/launch/` asset URLs for the Next.js root rewrite. When serving
+  it separately, preserve that URL prefix or change those URLs to relative paths.
+
+## Framework
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
