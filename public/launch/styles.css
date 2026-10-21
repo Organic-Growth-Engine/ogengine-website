@@ -28,11 +28,11 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .launch i { width: 7px; height: 7px; border: 2px solid var(--gold); border-radius: 50%; }
 .nav-divider { height: 22px; width: 1px; background: #bdbfba; }
 main { flex: 1; display: flex; }
-.hero { --art-lift: clamp(12px, 6vh, 48px); width: 100%; min-height: calc(100svh - 200px); position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; }
-.hero-copy { text-align: center; padding: clamp(28px, 5vh, 44px) 24px 0; position: relative; z-index: 3; }
-.eyebrow { margin: 0; font: 12px/1.5 Arial, Helvetica, sans-serif; letter-spacing: .12em; text-transform: none; color: #676c66; }
-h1 { font-size: clamp(38px, 4.1vw, 64px); line-height: 1.1; letter-spacing: -.04em; font-weight: 400; margin: 26px 0 17px; }
-.tagline { color: #737773; font-size: clamp(15px, 1.1vw, 17px); line-height: 1.5; margin: 0; }
+.hero { width: 100%; min-height: calc(100svh - 200px); position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; }
+.hero-copy { text-align: center; padding: clamp(78px, 10vh, 92px) 24px 0; position: relative; z-index: 3; }
+.eyebrow { margin: 0; font: 15px/1.5 Arial, Helvetica, sans-serif; letter-spacing: .12em; text-transform: none; color: #676c66; }
+h1 { font-size: clamp(48px, 5.2vw, 80px); line-height: 1.1; letter-spacing: -.04em; font-weight: 400; margin: 26px 0 17px; }
+.tagline { color: #737773; font-size: clamp(19px, 1.5vw, 22px); line-height: 1.5; margin: 0; }
 .actions { display: flex; justify-content: center; gap: 24px; margin-top: 28px; }
 .button { display: inline-flex; align-items: center; justify-content: space-between; gap: 28px; border-radius: 4px; min-width: 156px; min-height: 53px; padding: 0 30px; font-size: 14px; border: 1px solid var(--ink); white-space: nowrap; transition: background .18s, transform .18s; }
 .button-arrow { display: block; width: 16px; height: 16px; object-fit: contain; flex: none; transition: transform .2s ease; }
@@ -43,8 +43,8 @@ h1 { font-size: clamp(38px, 4.1vw, 64px); line-height: 1.1; letter-spacing: -.04
 .button-secondary { background: #ffffff80; border-color: #a6aaa4; min-width: 182px; }
 .button:hover .button-arrow, .button:focus-visible .button-arrow { transform: translate(3px, -3px); }
 .dot-field { position: absolute; inset: 250px 4% 18px; z-index: -1; opacity: .55; background-image: radial-gradient(circle, #d9d4c7 1.5px, transparent 2px); background-size: 62px 50px; mask-image: linear-gradient(transparent, #000 17%, #000 80%, transparent), radial-gradient(ellipse at center, transparent 30%, #000 70%); mask-composite: intersect; }
-.logo-stage { position: relative; flex: 1; min-height: clamp(200px, 32vh, 230px); transform: translateY(calc(-1 * var(--art-lift))); }
-.hero-logo { position: absolute; width: min(360px, 28vw); height: auto; left: 50%; bottom: clamp(32px, 5vh, 40px); transform: translateX(-50%); z-index: 2; }
+.logo-stage { position: relative; flex: 0 0 clamp(300px, 38vh, 320px); min-height: 0; }
+.hero-logo { position: absolute; width: min(460px, 36vw); height: auto; left: 50%; bottom: clamp(32px, 5vh, 40px); transform: translateX(-50%); z-index: 2; }
 .arch { position: absolute; left: 50%; bottom: 88px; transform: translateX(-50%); border: 1px solid #d9dcd53b; border-bottom: 0; border-radius: 1000px 1000px 0 0; mask-image: linear-gradient(#000, #000 70%, transparent); }
 .arch-outer { width: 840px; height: 420px; }
 .arch-inner { width: 670px; height: 335px; }
@@ -74,9 +74,9 @@ form .button:disabled { cursor: wait; opacity: .6; }
   .signature { grid-row: 1; grid-column: 1 / -1; justify-self: center; }
   .socials { gap: 24px; }
   .hero { min-height: calc(100svh - 230px); }
-  .hero-copy { padding-top: clamp(28px, 5vh, 44px); }
-  .logo-stage { min-height: 220px; }
-  .hero-logo { width: min(360px, 70vw); bottom: 24px; }
+  .hero-copy { padding-top: clamp(78px, 10vh, 92px); }
+  .logo-stage { flex-basis: clamp(240px, 34vh, 280px); }
+  .hero-logo { width: min(400px, 78vw); bottom: 24px; }
 }
 @media(max-width:640px) {
   .header { padding: 18px 24px; gap: 16px; }
@@ -85,16 +85,16 @@ form .button:disabled { cursor: wait; opacity: .6; }
   .navigation { width: auto; flex: none; gap: clamp(10px, 3vw, 18px); justify-content: flex-end; font-size: 9.5px; }
   .launch { gap: 7px; letter-spacing: .04em; }
   .nav-divider { height: 16px; }
-  .hero { --art-lift: clamp(8px, 3vh, 18px); min-height: 600px; }
-  .hero-copy { padding: 35px 22px 0; }
-  .eyebrow { font-size: 10px; letter-spacing: .1em; }
-  h1 { font-size: clamp(34px, 8.7vw, 48px); max-width: 510px; margin: 23px auto 18px; }
-  .tagline { font-size: 15px; max-width: 310px; margin: auto; }
+  .hero { min-height: 600px; }
+  .hero-copy { padding: 83px 22px 0; }
+  .eyebrow { font-size: 13px; letter-spacing: .1em; }
+  h1 { font-size: clamp(42px, 10.5vw, 58px); max-width: 510px; margin: 23px auto 18px; }
+  .tagline { font-size: 18px; max-width: 340px; margin: auto; }
   .actions { gap: 12px; margin-top: 26px; }
   .button { min-width: 133px; min-height: 49px; padding: 0 20px; gap: 22px; font-size: 13px; }
   .button-secondary { min-width: 156px; }
-  .logo-stage { min-height: 230px; }
-  .hero-logo { width: min(320px, 76vw); bottom: 38px; }
+  .logo-stage { flex-basis: clamp(220px, 30vh, 260px); }
+  .hero-logo { width: min(360px, 84vw); bottom: 38px; }
   .arch-outer { width: 510px; height: 255px; bottom: 75px; }
   .arch-inner { width: 390px; height: 195px; bottom: 75px; }
   .ground-glow { width: 420px; bottom: 50px; }
@@ -113,11 +113,17 @@ form .button:disabled { cursor: wait; opacity: .6; }
   .navigation { gap: 10px; font-size: 9px; }
   .launch { gap: 6px; }
 }
+@media(max-width:350px) {
+  .actions { flex-direction: column; align-items: center; gap: 10px; }
+  .actions .button, .actions .button-secondary { width: min(100%, 220px); min-width: 0; }
+}
+@media(max-width:260px) {
+  .socials { gap: 8px; font-size: 8px; }
+}
 @media(max-height:700px) and (min-width:641px) {
-  .hero-copy { padding-top: clamp(20px, 4vh, 28px); }
+  .hero-copy { padding-top: clamp(66px, 9vh, 76px); }
   h1 { margin-top: 18px; margin-bottom: 12px; }
   .actions { margin-top: 20px; }
-  .logo-stage { min-height: 180px; }
-  .hero { --art-lift: clamp(10px, 4vh, 24px); }
+  .logo-stage { flex-basis: clamp(280px, 40vh, 300px); }
 }
 @media(prefers-reduced-motion:reduce) { *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; } }
