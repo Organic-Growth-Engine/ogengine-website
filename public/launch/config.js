@@ -1,12 +1,12 @@
-// Add real destinations when ready. Null keeps each link visibly unassigned.
+
 window.OG_CONFIG = {
   links: {
-    chat: null,
-    contact: null,
-    x: null,
-    linkedin: null,
-    youtube: null
+    instagram: "https://www.instagram.com/og.engine/",
+    x: "https://x.com/Ogengine",
+    linkedin: "https://www.linkedin.com/in/og-engine-3a995b435/",
+    youtube: "https://www.youtube.com/@OGENGINE",
+    discord: "https://discord.gg/hhzHQaU7"
   },
-  
+
   waitlistEndpoint: "/api/waitlist"
 };

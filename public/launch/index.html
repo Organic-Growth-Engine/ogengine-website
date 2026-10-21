@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -22,7 +23,6 @@
         <span class="launch"><i aria-hidden="true"></i> Launching soon</span>
         <span class="nav-divider" aria-hidden="true"></span>
         <button type="button" data-dialog="about">About</button>
-        <a data-link="contact" aria-disabled="true" title="Contact link coming soon">Contact</a>
       </nav>
     </header>
 
@@ -35,7 +35,6 @@
           <p class="tagline">The next chapter of organic growth is on its way.</p>
           <div class="actions">
             <button class="button button-primary" type="button" data-dialog="join">Join us <span aria-hidden="true">↗</span></button>
-            <a class="button button-secondary" data-link="chat" aria-disabled="true" title="Chat link coming soon">Chat with us <span aria-hidden="true">↗</span></a>
           </div>
         </div>
         <div class="logo-stage" aria-hidden="true">
@@ -52,11 +51,12 @@
     <footer class="footer">
       <span class="copyright">© 2026 OG Engine</span>
       <p class="signature"><span aria-hidden="true">—</span> People <b>×</b> AI <b>×</b> Growth <span aria-hidden="true">—</span></p>
-      <nav class="socials" aria-label="Social and contact links">
+      <nav class="socials" aria-label="Social links">
+        <a data-link="instagram" aria-disabled="true" title="Instagram link coming soon">Instagram</a>
         <a data-link="x" aria-disabled="true" title="X link coming soon">X</a>
         <a data-link="linkedin" aria-disabled="true" title="LinkedIn link coming soon">LinkedIn</a>
         <a data-link="youtube" aria-disabled="true" title="YouTube link coming soon">YouTube</a>
-        <a data-link="contact" aria-disabled="true" title="Contact link coming soon">Contact</a>
+        <a data-link="discord" aria-disabled="true" title="Discord link coming soon">Discord</a>
       </nav>
     </footer>
   </div>
@@ -78,7 +78,9 @@
       <p>Join the waitlist for launch updates.</p>
       <label for="email">Email address</label>
       <input id="email" type="email" name="email" required maxlength="254" autocomplete="email" placeholder="you@example.com">
-      <div class="honeypot" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off" aria-label="Leave empty"></div>
+      <div class="honeypot" aria-hidden="true">
+        <input name="website" tabindex="-1" autocomplete="off" aria-label="Leave empty">
+      </div>
       <button class="button button-primary" type="submit">Join us <span aria-hidden="true">↗</span></button>
       <p id="signup-status" role="status" aria-live="polite"></p>
     </form>
