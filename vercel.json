@@ -1,14 +1,7 @@
 {
-  "redirects": [
-    {
-      "source": "/portfolio",
-      "destination": "/portfolio/",
-      "permanent": true
-    }
-  ],
   "rewrites": [
     {
-      "source": "/portfolio/",
+      "source": "/portfolio",
       "destination": "https://og-portfolio-beryl.vercel.app/"
     },
     {
