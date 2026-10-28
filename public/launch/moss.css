@@ -49,16 +49,6 @@
     linear-gradient(180deg, var(--moss-bronze-deep), var(--moss-bronze));
 }
 
-/* The big word. line-height .69 makes the content box hug the capital letters,
-   so peek / centering maths in moss.js can treat the box as the ink.
-
-   The copper colour is a background clipped to the text, and a background only
-   paints inside the element's box. Round letters (O, S) poke slightly above and
-   below the capitals, so the padding gives them room; otherwise their tops and
-   bottoms get cut off. Two background layers:
-     1. the copper gradient, sized to the content box (lined up with the capitals)
-     2. underneath, the gradient's top / bottom colour filling the padding, so
-        the round tops and bottoms blend in seamlessly */
 .moss__word {
   margin: 0;
   padding: 0.08em 0;
@@ -200,7 +190,7 @@
   left: 0;
   font-size: 34vw;
   transform-origin: 0 0;
-  will-change: transform, clip-path;
+  will-change: transform, filter;
   animation: moss-fade-in 0.9s ease-out 0.25s both;
 }
 
