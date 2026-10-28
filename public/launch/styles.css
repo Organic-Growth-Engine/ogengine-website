@@ -18,7 +18,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .skip-link { position: absolute; top: -80px; left: 20px; padding: 10px; background: white; z-index: 20; }
 .skip-link:focus { top: 8px; }
 
-/* One-screen layout: header + main + footer always fill exactly the viewport. */
+/* One-screen layout: header + main always fill exactly the viewport. */
 .site { max-width: 1920px; margin: auto; height: 100vh; height: 100svh; min-height: 460px; display: flex; flex-direction: column; overflow: hidden; }
 .header { flex: none; padding: clamp(10px, 2.6vh, 22px) 6%; display: flex; justify-content: space-between; align-items: center; gap: 20px; z-index: 2; }
 .brand { display: inline-flex; align-items: center; gap: 14px; font-size: 13px; letter-spacing: .01em; font-weight: 700; white-space: nowrap; }
@@ -47,17 +47,22 @@ h1 { font-size: clamp(28px, min(4.2vw, 7.5vh), 64px); line-height: 1.1; letter-s
 .button:hover .button-arrow, .button:focus-visible .button-arrow { transform: translate(3px, -3px); }
 .dot-field { position: absolute; inset: 45% 4% 14px; z-index: -1; opacity: .55; background-image: radial-gradient(circle, #d9d4c7 1.2px, transparent 1.6px); background-size: 50px 40px; mask-image: linear-gradient(transparent, #000 17%, #000 80%, transparent), radial-gradient(ellipse at center, transparent 30%, #000 70%); mask-composite: intersect; }
 
-/* Logo area shrinks with the screen; everything inside is sized from the logo width. */
-.logo-stage { position: relative; flex: 0 1 clamp(150px, 38vh, 380px); min-height: 90px; container-type: size; }
-.logo-stage > * { --lw: min(368px, 36vw, calc((100cqh - 4px) * 1.7)); }
-.hero-logo { position: absolute; width: var(--lw); height: auto; left: 50%; bottom: calc(var(--lw) * .087); transform: translateX(-50%); z-index: 2; }
-.arch { position: absolute; left: 50%; bottom: calc(var(--lw) * .19); transform: translateX(-50%); border: 1px solid #d9dcd53b; border-bottom: 0; border-radius: 1000px 1000px 0 0; mask-image: linear-gradient(#000, #000 70%, transparent); }
-.arch-outer { width: calc(var(--lw) * 1.83); height: calc(var(--lw) * .915); }
-.arch-inner { width: calc(var(--lw) * 1.46); height: calc(var(--lw) * .73); }
-.axis { position: absolute; left: 50%; bottom: calc(var(--lw) * .098); width: 1px; height: calc(var(--lw) * .67); background: linear-gradient(transparent,#e7e7e34d,transparent); }
-.ground-glow { position: absolute; left: 50%; bottom: calc(var(--lw) * .135); transform: translateX(-50%); width: calc(var(--lw) * 1.43); height: calc(var(--lw) * .17); background: radial-gradient(ellipse, #eeb7543b, #eeb75410 40%, transparent 70%); filter: blur(6px); }
-.contact-shadow { position: absolute; bottom: calc(var(--lw) * .189); left: 50%; transform: translateX(-50%); width: calc(var(--lw) * .8); height: calc(var(--lw) * .028); background: #a467242e; border-radius: 50%; filter: blur(7px); }
+/* Logo above the eyebrow. The inline-grid box shrinks to the eyebrow text's width;
+   "width: 0; min-width: 100%" lets the logo fill that width without widening the box,
+   so the logo is always exactly as wide as "Organic Growth Engine". */
+.hero-mark { display: inline-grid; row-gap: clamp(6px, 1.4vh, 12px); }
+.hero-logo { display: block; width: 0; min-width: 100%; height: auto; }
 
+/* Arch backdrop at the bottom of the hero (MOSS peeks up behind it).
+   It shrinks with the screen; everything inside is sized from --arch-w. */
+.arch-stage { position: relative; flex: 0 1 clamp(150px, 38vh, 380px); min-height: 90px; container-type: size; }
+.arch-stage > * { --arch-w: min(368px, 36vw, calc((100cqh - 4px) * 1.7)); }
+.arch { position: absolute; left: 50%; bottom: calc(var(--arch-w) * .19); transform: translateX(-50%); border: 1px solid #d9dcd53b; border-bottom: 0; border-radius: 1000px 1000px 0 0; mask-image: linear-gradient(#000, #000 70%, transparent); }
+.arch-outer { width: calc(var(--arch-w) * 1.83); height: calc(var(--arch-w) * .915); }
+.arch-inner { width: calc(var(--arch-w) * 1.46); height: calc(var(--arch-w) * .73); }
+.axis { position: absolute; left: 50%; bottom: calc(var(--arch-w) * .098); width: 1px; height: calc(var(--arch-w) * .67); background: linear-gradient(transparent,#e7e7e34d,transparent); }
+
+/* Site footer — lives at the bottom of the MOSS info screen (dark colours in moss.css). */
 .footer { flex: none; margin: 0 16px; padding: clamp(10px, 2.6vh, 28px) calc(6% - 16px); border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 19px; color: #686d67; }
 .copyright { font-size: 10px; }
 .signature { display: flex; align-items: center; gap: 16px; margin: 0; font: 9px/1.5 Arial, Helvetica, sans-serif; letter-spacing: .07em; white-space: nowrap; }
@@ -80,7 +85,7 @@ form .button:disabled { cursor: wait; opacity: .6; }
   .footer { grid-template-columns: 1fr auto; row-gap: clamp(6px, 1.4vh, 16px); }
   .signature { grid-row: 1; grid-column: 1 / -1; justify-self: center; }
   .socials { gap: 19px; }
-  .logo-stage > * { --lw: min(320px, 62vw, calc((100cqh - 4px) * 1.7)); }
+  .arch-stage > * { --arch-w: min(320px, 62vw, calc((100cqh - 4px) * 1.7)); }
 }
 @media(max-width:640px) {
   .header { padding-left: 20px; padding-right: 20px; gap: 13px; }
@@ -96,8 +101,8 @@ form .button:disabled { cursor: wait; opacity: .6; }
   .actions { gap: 10px; }
   .button { min-width: 106px; padding: 0 16px; gap: 18px; font-size: 11px; }
   .button-secondary { min-width: 125px; }
-  .logo-stage { flex-basis: clamp(140px, 30vh, 230px); }
-  .logo-stage > * { --lw: min(288px, 84vw, calc((100cqh - 4px) * 1.7)); }
+  .arch-stage { flex-basis: clamp(140px, 30vh, 230px); }
+  .arch-stage > * { --arch-w: min(288px, 84vw, calc((100cqh - 4px) * 1.7)); }
   .dot-field { background-size: 30px 34px; }
   .footer { margin: 0 13px; padding-left: 6px; padding-right: 6px; column-gap: 10px; }
   .signature { font-size: 8px; gap: 10px; }
@@ -119,17 +124,15 @@ form .button:disabled { cursor: wait; opacity: .6; }
 @media(max-width:260px) {
   .socials { gap: 6px; font-size: 7px; }
 }
-/* Short landscape screens (e.g. phones on their side): put the logo beside the copy. */
+/* Short landscape screens (e.g. phones on their side): same centred layout as
+   desktop, just more compact so everything fits the low height. */
 @media(max-height:520px) and (orientation:landscape) {
   .site { min-height: 280px; }
-  .hero { flex-direction: row; align-items: center; justify-content: center; gap: 4vw; }
-  .hero-copy { padding: 0 0 0 4vw; text-align: left; flex: 0 1 auto; }
-  h1 { font-size: clamp(22px, 9vh, 40px); margin: 6px 0; max-width: none; }
-  .tagline { font-size: 12px; max-width: none; margin: 0; }
-  .actions { justify-content: flex-start; margin-top: 10px; }
+  h1 { font-size: clamp(22px, 9vh, 40px); margin: 6px auto; max-width: none; }
+  .tagline { font-size: 12px; max-width: none; }
+  .actions { margin-top: 10px; }
   .button { min-height: 34px; }
-  .logo-stage { flex: 0 1 40vw; height: 100%; min-height: 0; }
-  .logo-stage > * { --lw: min(300px, 38vw, calc((100cqh - 4px) * 1.7)); }
+  .arch-stage { flex-basis: 30vh; min-height: 60px; }
   .footer { grid-template-columns: 1fr auto 1fr; padding-top: 8px; padding-bottom: 8px; }
   .signature { grid-row: auto; grid-column: auto; }
   .socials { border-left: 0; padding-left: 0; }
