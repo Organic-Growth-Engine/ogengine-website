@@ -1,18 +1,5 @@
 /* ==========================================================================
    MOSS — scroll section
-   --------------------------------------------------------------------------
-   Sits below the launch hero. Does NOT modify any rule in styles.css.
-   Motion is driven by moss.js; this file only holds look & layout.
-
-   Scenes (scroll down):
-     1. PEEK  – top half of "MOSS" rises from the bottom of the first screen
-     2. FULL  – MOSS grows to fill the screen (page background stays the same)
-     3. INFO  – MOSS shrinks to the top centre, background deepens to logo bronze,
-                and the MOSS description fades in below in white, with the
-                site footer at the bottom of the screen
-
-   Without JS (or with reduced motion) the section is a plain static block
-   under the hero, showing the final INFO layout.
    ========================================================================== */
 
 @font-face {
@@ -30,15 +17,17 @@
   --moss-text: #ffffff;
 
   /* Metallic copper — mirrors the highlights/shadows of the logo */
+  --moss-metal-top: #f7d9a0;
+  --moss-metal-bottom: #f3c070;
   --moss-metal: linear-gradient(
     180deg,
-    #f7d9a0 0%,
+    var(--moss-metal-top) 0%,
     #e8a04a 20%,
     #b5560a 42%,
     #5e2204 56%,
     #9a4308 70%,
     #e08a2c 88%,
-    #f3c070 100%
+    var(--moss-metal-bottom) 100%
   );
 
   --moss-gutter: 6vw; /* same side padding as the header/footer */
@@ -60,16 +49,27 @@
     linear-gradient(180deg, var(--moss-bronze-deep), var(--moss-bronze));
 }
 
-/* The big word. line-height .69 makes the box hug the capital letters,
-   so peek / centering maths in moss.js can treat the box as the ink. */
+/* The big word. line-height .69 makes the content box hug the capital letters,
+   so peek / centering maths in moss.js can treat the box as the ink.
+
+   The copper colour is a background clipped to the text, and a background only
+   paints inside the element's box. Round letters (O, S) poke slightly above and
+   below the capitals, so the padding gives them room; otherwise their tops and
+   bottoms get cut off. Two background layers:
+     1. the copper gradient, sized to the content box (lined up with the capitals)
+     2. underneath, the gradient's top / bottom colour filling the padding, so
+        the round tops and bottoms blend in seamlessly */
 .moss__word {
   margin: 0;
+  padding: 0.08em 0;
   font-weight: 500;
   line-height: 0.69;
   letter-spacing: -0.02em;
   white-space: nowrap;
   color: transparent;
-  background-image: var(--moss-metal);
+  background:
+    var(--moss-metal) content-box no-repeat,
+    linear-gradient(var(--moss-metal-top) 50%, var(--moss-metal-bottom) 50%);
   -webkit-background-clip: text;
   background-clip: text;
   user-select: none;
@@ -187,7 +187,7 @@
   padding: 0;
 }
 
-/* Backdrop fades in during scene 3 (opacity set by moss.js). */
+/* Backdrop fades in during scene 4, after MOSS has settled (opacity set by moss.js). */
 .moss-scrollytelling .moss__backdrop {
   opacity: var(--moss-backdrop, 0);
 }
