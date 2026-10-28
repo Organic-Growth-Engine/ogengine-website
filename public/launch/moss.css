@@ -1,0 +1,254 @@
+/* ==========================================================================
+   MOSS — scroll section
+   --------------------------------------------------------------------------
+   Sits below the launch hero. Does NOT modify any rule in styles.css.
+   Motion is driven by moss.js; this file only holds look & layout.
+
+   Scenes (scroll down):
+     1. PEEK  – top half of "MOSS" rises from the bottom of the first screen
+     2. FULL  – MOSS grows to fill the screen (page background stays the same)
+     3. INFO  – MOSS shrinks to the top centre, background deepens to logo bronze,
+                and the MOSS description fades in below in white, with the
+                site footer at the bottom of the screen
+
+   Without JS (or with reduced motion) the section is a plain static block
+   under the hero, showing the final INFO layout.
+   ========================================================================== */
+
+@font-face {
+  font-family: "Clash Display";
+  src: url("/launch/assets/ClashDisplay-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-display: swap;
+}
+
+.moss {
+  /* Colours sampled from the OG logo */
+  --moss-bronze-deep: #140400;
+  --moss-bronze: #2e1004;
+  --moss-glow: #a84800;
+  --moss-text: #ffffff;
+
+  /* Metallic copper — mirrors the highlights/shadows of the logo */
+  --moss-metal: linear-gradient(
+    180deg,
+    #f7d9a0 0%,
+    #e8a04a 20%,
+    #b5560a 42%,
+    #5e2204 56%,
+    #9a4308 70%,
+    #e08a2c 88%,
+    #f3c070 100%
+  );
+
+  --moss-gutter: 6vw; /* same side padding as the header/footer */
+
+  position: relative;
+  color: var(--moss-text);
+  font-family: "Clash Display", Arial, Helvetica, sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   Shared building blocks
+   -------------------------------------------------------------------------- */
+
+.moss__backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 105%, #a8480055, transparent 70%),
+    linear-gradient(180deg, var(--moss-bronze-deep), var(--moss-bronze));
+}
+
+/* The big word. line-height .69 makes the box hug the capital letters,
+   so peek / centering maths in moss.js can treat the box as the ink. */
+.moss__word {
+  margin: 0;
+  font-weight: 500;
+  line-height: 0.69;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  color: transparent;
+  background-image: var(--moss-metal);
+  -webkit-background-clip: text;
+  background-clip: text;
+  user-select: none;
+}
+
+/* Column: lead at the top, pillars + footer pushed to the bottom.
+   All text is centred under the MOSS word. */
+.moss__content {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  text-align: center;
+}
+
+.moss__lead {
+  margin: 0 auto; /* centre the block itself, not just its lines */
+  max-width: 17em;
+  font-size: clamp(22px, 3.2vw, 56px); /* kept smaller than the MOSS heading */
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+}
+
+.moss__pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: auto 0 0; /* auto top margin pushes pillars + footer to the bottom */
+  padding: 22px 0 0;
+  list-style: none;
+  border-top: 1px solid #ffffff3d;
+  font-size: clamp(15px, 1.6vw, 26px);
+  letter-spacing: -0.01em;
+}
+
+.moss__pillars span {
+  display: block;
+  margin-bottom: 10px;
+  font: 11px/1 Arial, Helvetica, sans-serif;
+  letter-spacing: 0.12em;
+  opacity: 0.55;
+}
+
+/* Site footer on the bronze background. Layout comes from .footer in
+   styles.css; only spacing, font and colours are adapted here. */
+.moss .footer {
+  margin: 0;
+  padding: clamp(14px, 2.6vh, 24px) 0 0;
+  border-top-color: #ffffff3d; /* same line as the pillars */
+  color: #ffffffb3;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: left; /* keep the footer's own left · centre · right grid */
+}
+
+.moss .signature b,
+.moss .signature > span {
+  color: #ffffff73;
+}
+
+.moss .socials {
+  border-left-color: #ffffff3d;
+}
+
+.moss .socials a:hover {
+  color: var(--moss-text);
+}
+
+/* --------------------------------------------------------------------------
+   Static fallback (no JS / reduced motion): plain section under the hero
+   -------------------------------------------------------------------------- */
+
+.moss__stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(32px, 6vh, 64px);
+  min-height: 100svh;
+  padding: clamp(48px, 10vh, 96px) var(--moss-gutter) clamp(32px, 6vh, 64px);
+  overflow: hidden;
+}
+
+.moss__word {
+  position: relative;
+  font-size: clamp(80px, 22vw, 420px);
+  text-align: center;
+}
+
+.moss__content {
+  position: relative;
+  flex: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Animated mode — moss.js adds .moss-scrollytelling to <html>
+   -------------------------------------------------------------------------- */
+
+/* Track: pulled up over the hero so MOSS can peek on the first screen.
+   --moss-hero-h and --moss-scroll-length are set by moss.js. */
+.moss-scrollytelling .moss {
+  margin-top: calc(-1 * var(--moss-hero-h, 100svh));
+  height: calc(100svh + var(--moss-scroll-length, 300svh));
+  pointer-events: none; /* never block the hero buttons underneath */
+}
+
+/* Stage: stays pinned to the viewport while the track scrolls past.
+   z-index -1 keeps it BEHIND the hero (hero is transparent), so the logo,
+   copy and footer stay exactly as they are and MOSS tucks in behind them. */
+.moss-scrollytelling .moss__stage {
+  position: sticky;
+  top: 0;
+  z-index: -1;
+  display: block;
+  height: 100svh;
+  min-height: 0;
+  padding: 0;
+}
+
+/* Backdrop fades in during scene 3 (opacity set by moss.js). */
+.moss-scrollytelling .moss__backdrop {
+  opacity: var(--moss-backdrop, 0);
+}
+
+/* Word is laid out once at its largest size and moved/scaled by moss.js
+   (scaling DOWN keeps the letters crisp). */
+.moss-scrollytelling .moss__word {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 34vw;
+  transform-origin: 0 0;
+  will-change: transform, clip-path;
+  animation: moss-fade-in 0.9s ease-out 0.25s both;
+}
+
+/* Description block + footer: position is set by moss.js (below the shrunk MOSS). */
+.moss-scrollytelling .moss__content {
+  position: absolute;
+  left: var(--moss-gutter);
+  right: var(--moss-gutter);
+  top: var(--moss-content-top, 50%);
+  bottom: clamp(16px, 4vh, 40px);
+  flex: none;
+  opacity: var(--moss-content, 0);
+  transform: translateY(calc((1 - var(--moss-content, 0)) * 40px));
+  pointer-events: none; /* footer links can't be clicked while invisible… */
+}
+
+/* …moss.js adds .is-visible once the description has faded in. */
+.moss-scrollytelling .moss__content.is-visible {
+  pointer-events: auto;
+}
+
+/* The hero fades out while it scrolls away so its text never
+   collides with the growing letters. */
+.moss-scrollytelling .site {
+  opacity: var(--moss-hero-opacity, 1);
+}
+
+@keyframes moss-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* --------------------------------------------------------------------------
+   Small screens
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 700px) {
+  .moss { --moss-gutter: 20px; }
+  .moss__content { gap: 32px; }
+  .moss__pillars { gap: 12px; }
+}
+
+/* Short screens (e.g. phones on their side): tighten so the footer still fits. */
+@media (max-height: 520px) {
+  .moss__content { gap: 16px; }
+  .moss__lead { font-size: clamp(18px, 2.8vw, 28px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .moss__word { animation: none !important; }
+}
