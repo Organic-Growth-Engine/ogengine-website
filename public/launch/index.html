@@ -30,7 +30,6 @@
 
   <script src="/launch/config.js" defer></script>
   <script src="/launch/script.js" defer></script>
-  <script src="/launch/moss.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -38,15 +37,33 @@
   <div class="site">
     <header class="header">
       <a class="brand" href="/" aria-label="OG Engine home">
-        <img src="/launch/assets/og-logo.png" width="1774" height="887" alt="">
+        <img src="/og-logo-amber.png" width="1774" height="887" alt="">
       </a>
 
       <nav class="navigation" aria-label="Main navigation">
-        <span class="launch">
-          <i aria-hidden="true"></i> Launching soon
-        </span>
-        <span class="nav-divider" aria-hidden="true"></span>
-        <button type="button" data-dialog="about">About</button>
+        <button
+          class="navigation__toggle"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+          data-nav-toggle
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="navigation__links" id="primary-navigation">
+          <div class="navigation__menu-head">
+            <span>NAVIGATE</span>
+            <button type="button" data-nav-close aria-label="Close navigation menu">CLOSE</button>
+          </div>
+          <div class="navigation__menu-items">
+            <button type="button" data-dialog="about">About</button>
+            <a href="#moss">MOSS</a>
+            <a href="#moss-footer">Contact</a>
+          </div>
+        </div>
       </nav>
     </header>
 
@@ -55,17 +72,11 @@
         <div class="dot-field" aria-hidden="true"></div>
 
         <div class="hero-copy">
-          <!-- Logo + eyebrow: the logo is always exactly as wide as the
-               "Organic Growth Engine" text (see .hero-mark in styles.css). -->
           <div class="hero-mark">
-            <img
-              class="hero-logo"
-              src="/launch/assets/og-logo.png"
-              width="1774"
-              height="887"
-              alt=""
-              fetchpriority="high"
-            >
+            <span class="site-status" role="status">
+              <span class="site-status__dot" aria-hidden="true"></span>
+              Launching soon
+            </span>
             <p class="eyebrow">Organic Growth Engine</p>
           </div>
 
@@ -111,7 +122,7 @@
           </div>
         </div>
 
-        <!-- Decorative arches at the bottom of the hero; MOSS rises behind them. -->
+        <!-- Decorative arches frame the MOSS heading as it peeks into view. -->
         <div class="arch-stage" aria-hidden="true">
           <div class="arch arch-outer"></div>
           <div class="arch arch-inner"></div>
@@ -121,70 +132,104 @@
     </main>
   </div>
 
-  <!-- MOSS: peeks from the bottom of the hero, grows full-screen on scroll, then
-       shrinks to reveal the description and the site footer.
-       Look: moss.css · Motion: moss.js -->
+  <!-- MOSS overlaps the hero slightly, then continues as a regular scroll section. -->
   <section class="moss" id="moss" aria-labelledby="moss-title">
     <div class="moss__stage">
-      <div class="moss__backdrop" aria-hidden="true"></div>
+      <div class="moss__panel">
+        <div class="moss__grid" aria-hidden="true"></div>
 
-      <h2 class="moss__word" id="moss-title">MOSS</h2>
-
-      <div class="moss__content">
-        <p class="moss__lead">MOSS is Marketing, Operations and Sales Systems</p>
-
-        <!-- Add more MOSS details here later. -->
-        <ul class="moss__pillars">
-          <li><span>01</span>Marketing</li>
-          <li><span>02</span>Operations</li>
-          <li><span>03</span>Sales</li>
-        </ul>
-
-        <!-- Site footer: shown at the bottom of the last MOSS screen.
-             role="contentinfo" keeps it the page's footer landmark even though
-             it sits inside this <section>. -->
-        <footer class="footer" role="contentinfo">
-          <span class="copyright">© 2026 OG Engine, All Rights Reserved</span>
-
-          <p class="signature">
-            <span aria-hidden="true">—</span>
-            People <b>×</b> AI <b>×</b> Growth
-            <span aria-hidden="true">—</span>
+        <div class="moss__intro">
+          <p class="moss__eyebrow">MOSS OVERVIEW</p>
+          <h2 class="moss__word" id="moss-title">
+            Your business runs on systems.
+            <span>MOSS runs them.</span>
+          </h2>
+          <p class="moss__lead">
+            MOSS stands for Marketing, Sales and Operations Systems. It spots the
+            busywork slowing your team, shows you what to automate, and builds the
+            tools that do it. Less manual effort. More momentum.
           </p>
+          <a class="moss__cta" href="#moss-pillars">Know more</a>
+        </div>
 
-          <nav class="socials" aria-label="Social links">
-            <a
-              data-link="instagram"
-              aria-disabled="true"
-              title="Instagram"
-            >Instagram</a>
-
-            <a
-              data-link="x"
-              aria-disabled="true"
-              title="X"
-            >X</a>
-
-            <a
-              data-link="linkedin"
-              aria-disabled="true"
-              title="LinkedIn"
-            >LinkedIn</a>
-
-            <a
-              data-link="x"
-              aria-disabled="true"
-              title="X"
-            >X</a>
-
-            <a
-              data-link="youtube"
-              aria-disabled="true"
-              title="YouTube"
-            >YouTube</a>
-          </nav>
-        </footer>
       </div>
+
+      <footer class="footer moss__footer" id="moss-footer" role="contentinfo">
+        <div class="moss__footer-main">
+          <div class="moss__footer-card" id="contact">
+            <div class="moss__footer-card-content">
+              <p class="moss__footer-eyebrow">( STAY IN TOUCH )</p>
+              <h2>Let’s build something<br>worth remembering.</h2>
+              <p class="moss__footer-copy">A little note when we have something new to share.</p>
+
+              <form class="signup-form moss__footer-form" hidden>
+                <label class="visually-hidden" for="footer-email">Email address</label>
+                <input
+                  id="footer-email"
+                  type="email"
+                  name="email"
+                  required
+                  maxlength="254"
+                  autocomplete="email"
+                  placeholder="you@example.com"
+                >
+                <div class="honeypot" aria-hidden="true">
+                  <input name="website" tabindex="-1" autocomplete="off" aria-label="Leave empty">
+                </div>
+                <button type="submit" aria-label="Join the OG Engine mailing list">
+                  <span aria-hidden="true">→</span>
+                </button>
+                <p class="moss__footer-status" role="status" aria-live="polite"></p>
+              </form>
+
+              <p class="moss__footer-unavailable" id="moss-footer-unavailable" hidden>Email updates will be available soon.</p>
+            </div>
+            <div class="moss__footer-card-mark" aria-hidden="true">
+            </div>
+          </div>
+
+          <div class="moss__footer-lower">
+            <div class="moss__footer-columns">
+              <nav class="moss__footer-links" aria-label="Reach out">
+                <h2>Reach Out</h2>
+                <ul>
+                  <li><a href="mailto:ogengine.office@gmail.com">Gmail</a></li>
+                  <li><a href="tel:9870562062">Contact</a></li>
+                </ul>
+              </nav>
+              <nav class="moss__footer-links" aria-label="Pages">
+                <h2>Pages</h2>
+                <ul>
+                  <li><a href="#work">All Products</a></li>
+                  <li><a href="#contact">Pricing</a></li>
+                  <li><a href="/blog">Blog</a></li>
+                  <li><a href="/careers">Careers</a></li>
+                </ul>
+              </nav>
+              <nav class="moss__footer-links" aria-label="Socials">
+                <h2>Socials</h2>
+                <ul>
+                  <li><a href="https://www.instagram.com/og.engine/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                  <li><a href="https://x.com/Ogengine" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+                  <li><a href="https://www.youtube.com/@OGENGINE" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+                  <li><a href="https://www.linkedin.com/in/og-engine-3a995b435/?isSelfProfile=true" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                  <li><a href="https://discord.gg/hhzHQaU7" target="_blank" rel="noopener noreferrer">Discord</a></li>
+                </ul>
+              </nav>
+              <nav class="moss__footer-links" aria-label="Legals">
+                <h2>Legals</h2>
+                <ul>
+                  <li><a href="/Privacy_Policy_OrganicGrowthEngine.docx">Privacy Policy</a></li>
+                  <li><a href="/Terms_of_Service_OrganicGrowthEngine.docx">Terms of service</a></li>
+                  <li><a href="/Cookie_Policy_OrganicGrowthEngine.docx">Cookie policy</a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="moss__footer-watermark" aria-hidden="true"></div>
+          </div>
+        </div>
+
+      </footer>
     </div>
   </section>
 
@@ -223,7 +268,7 @@
       Our waitlist will open soon. Please check back for updates.
     </p>
 
-    <form id="signup-form" hidden>
+    <form id="signup-form" class="signup-form" hidden>
       <p>Join the waitlist for launch updates.</p>
 
       <label for="email">Email address</label>
