@@ -1,0 +1,4 @@
+[
+  { "check": "copy-headings", "target": "h2#founders-h", "reason": "the page's one brand line; the other five hits are FAQ questions, which copy.md allows as questions" },
+  { "check": "phone-number", "target": "tel:+919870562062", "reason": "the client's own published phone number, given in the brief and on the previous site" }
+]
