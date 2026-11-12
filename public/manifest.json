@@ -1,12 +1,11 @@
 {
-  "name": "OGengine",
-  "short_name": "OGengine",
-  "description": "A high-performance, developer-first 3D engine designed for WebGPU & Vulkan native platforms.",
+  "name": "OG Engine",
+  "short_name": "OG Engine",
+  "description": "Growth infrastructure for marketing, operations and sales, built on MOSS.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#050505",
-  "theme_color": "#050505",
-  "orientation": "portrait-primary",
+  "background_color": "#0a0807",
+  "theme_color": "#0a0807",
   "icons": [
     {
       "src": "/og.png",

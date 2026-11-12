@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-type="software" data-radius="soft" data-ground="sand" data-buttons="pill" data-motion>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -21,216 +21,341 @@
 <link rel="icon" sizes="48x48" href="/launch/assets/favicon.ico">
 <link rel="apple-touch-icon" href="/launch/assets/apple-touch-icon.png">
 <meta name="theme-color" content="#0a0807">
-<meta name="site-kind" content="software">
-<meta name="page-type" content="software">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400..500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/launch/kit/system.css">
-<link rel="stylesheet" href="/launch/kit/ui/cards.css">
-<link rel="stylesheet" href="/launch/kit/motion/motion.css">
-<link rel="stylesheet" href="/launch/kit/backgrounds/backgrounds.css">
-<link rel="stylesheet" href="/launch/kit/layout/layout.css">
-<link rel="stylesheet" href="/launch/kit/icons/icon.css">
-<!-- palette: the client's reference board (near-black, burnt copper, white type), through start.mjs brand;
-     amber stays in the OG logo and the copper's highlights -->
-<style>
-:root {
-  --p-bg: #0a0807; --p-surface: #14100d; --p-ink: #f7f2ec; --p-muted: #a89c90;
-  --p-accent: #f07a2a; --p-accent-ink: #140904; --p-action: #f07a2a; --p-action-ink: #140904;
-  --p-inv-bg: #f7f2ec; --p-inv-surface: #e6ddd3; --p-inv-ink: #0a0807; --p-inv-muted: #5c544c;
-  --p-inv-accent: #0a0807; --p-inv-accent-ink: #f7f2ec; --p-inv-action: #0a0807; --p-inv-action-ink: #f7f2ec;
-  --font-display: "Geist", system-ui, sans-serif;
-  --font-text: "Geist", system-ui, sans-serif;
-  --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  --display-weight: 500;
-  --display-tracking: -0.035em;
-  --display-tracking-xl: -0.045em;
-}
-</style>
-<link rel="stylesheet" href="/launch/kit/diagrams/diagram.css">
+<link rel="preload" href="/launch/assets/Montserrat-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/launch/styles.css">
-<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
-<script src="/launch/kit/backgrounds/backgrounds.js"></script>
-<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
-<link rel="modulepreload" href="/launch/kit/moments/moments.js">
-<link rel="modulepreload" href="/launch/kit/moments/lib.js">
-<link rel="modulepreload" href="/launch/kit/moments/liquid-type/moment.js">
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-<!-- type: software (site-kind software)
-     deal: hero centred (re-dealt on the client's art direction: Raycast, Make, Gumloop), nav nav-centre,
-           close close-type, footer footer-statement, rhythm space, buttons pill (the client's reference board),
-           mark: the client's own OG logo; grounds: the lit copper ground in the hero frame, the card panels and
-           the statement footer; the hero's copper light beam
-     moments: liquid-type on the problem statement (#problem)
-     content: the client's master brief only (OG Engine, MOSS, the ecosystem, Origin, the garage); no invented
-              features, figures, customers or dates -->
+<a class="skip" href="#main">Skip to content</a>
 
-<header class="nav nav--centre">
-  <div class="wrap nav__bar">
-    <a class="skip-link" href="#top">Skip to content</a>
-    <a class="nav__logo" href="#top" aria-label="OG Engine home"><img class="og-logo" src="/launch/assets/og-logo-amber-400.png" width="400" height="200" alt=""><span class="nav__name">OG Engine</span></a>
-    <nav class="nav__links" aria-label="Main">
-      <div class="nav__item"><a class="nav__link" href="#moss">MOSS</a></div>
-      <div class="nav__item"><a class="nav__link" href="#ecosystem">Ecosystem</a></div>
-      <div class="nav__item"><a class="nav__link" href="#origin">Origin</a></div>
-      <div class="nav__item"><a class="nav__link" href="#about">About</a></div>
+<svg class="sprite" aria-hidden="true" focusable="false" width="0" height="0">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-arrow-ne" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6c.6-1.1 2-1.9 3.9-1.9 3.3 0 4.3 2.1 4.3 5.3V21h-4v-5.5c0-1.5-.5-2.5-1.9-2.5s-2.1 1-2.1 2.5V21h-4z"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.8"/></g><circle cx="17" cy="7" r="1.1" fill="currentColor"/></symbol>
+  <symbol id="i-youtube" viewBox="0 0 24 24"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></symbol>
+  <symbol id="i-discord" viewBox="0 0 24 24"><path fill="currentColor" d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></symbol>
+  <symbol id="i-origin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="2.6"/><circle cx="12" cy="12" r="8.2" stroke-dasharray="1.5 3.4"/></g></symbol>
+  <symbol id="i-platforms" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="2.2"/><circle cx="17.5" cy="6" r="2.2"/><circle cx="17.5" cy="18" r="2.2"/><path d="m8 11 7.5-4M8 13l7.5 4"/></g></symbol>
+  <symbol id="i-research" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16M6 16l4-5 3 3 5-7"/></g></symbol>
+</svg>
+
+<header class="hero" id="top">
+  <div class="band">
+    <canvas class="band__fx" aria-hidden="true"></canvas>
+
+    <nav class="nav" aria-label="Main">
+      <div class="nav__bar">
+        <a class="logo" href="#top" aria-label="OG Engine home">
+          <img class="logo__mark" src="/launch/assets/og-logo-white.svg" width="840" height="360" alt="">
+        </a>
+
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-panel">
+          <span class="nav__toggle-label">Menu</span>
+          <span class="nav__burger" aria-hidden="true"></span>
+        </button>
+
+        <ul class="nav__links" id="nav-panel">
+          <li><a href="#about" data-sub="about">About</a></li>
+          <li><a href="#problem" data-sub="problem">The problem</a></li>
+          <li><a href="#moss" data-sub="moss">MOSS <svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+          <li><a href="#ecosystem" data-sub="ecosystem">Ecosystem <svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+        </ul>
+
+        <a class="btn btn--ghost nav__cta" href="#waitlist">Join the waitlist <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+
+      <div class="nav__sub">
+        <span class="nav__crumb" aria-hidden="true">/ Menu</span>
+        <ul class="nav__sublinks" data-for="about"><li><a href="#about">A garage for businesses</a></li></ul>
+        <ul class="nav__sublinks" data-for="problem" hidden><li><a href="#problem">Disconnected tools</a></li></ul>
+        <ul class="nav__sublinks" data-for="moss" hidden>
+          <li><a href="#moss" data-pick="0">Marketing</a></li>
+          <li><a href="#moss" data-pick="1">Operations</a></li>
+          <li><a href="#moss" data-pick="2">Sales</a></li>
+        </ul>
+        <ul class="nav__sublinks" data-for="ecosystem" hidden>
+          <li><a href="#ecosystem">Origin</a></li>
+          <li><a href="#ecosystem">Next MOSS products</a></li>
+        </ul>
+      </div>
     </nav>
-    <div class="nav__actions">
-      <a class="btn btn--primary" href="#waitlist">Join the waitlist</a>
+
+    <div class="band__foot wrap">
+      <p class="band__tag">Marketing, operations and sales<br>as one connected system</p>
+      <div class="quick">
+        <p class="quick__label">Find OG Engine on</p>
+        <ul class="socials">
+          <li><a class="social" href="https://x.com/Ogengine" target="_blank" rel="noopener noreferrer" aria-label="OG Engine on X"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg></a></li>
+          <li><a class="social" href="https://www.linkedin.com/in/og-engine-3a995b435/" target="_blank" rel="noopener noreferrer" aria-label="OG Engine on LinkedIn"><svg class="ico" aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
+          <li><a class="social" href="https://www.instagram.com/og.engine/" target="_blank" rel="noopener noreferrer" aria-label="OG Engine on Instagram"><svg class="ico" aria-hidden="true"><use href="#i-instagram"/></svg></a></li>
+        </ul>
+      </div>
     </div>
-    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
-      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-    </button>
+  </div>
+
+  <div class="lead wrap">
+    <div class="lead__copy">
+      <p class="pill">Organic Growth Engine</p>
+      <h1>Growth infrastructure for businesses, built on <span class="chip">MOSS</span></h1>
+      <p class="lead__sub">OG Engine builds connected systems for marketing, operations and sales. Our first product, Origin, brings 15+ social media platforms into one place.</p>
+    </div>
+    <a class="btn btn--solid lead__cta" href="#waitlist">Join the waitlist <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   </div>
 </header>
 
-<main id="top">
-  <section class="hero hero--centred" data-enter aria-labelledby="hero-h">
-    <div class="wrap"><div class="hero-text">
-      <div class="hero__c">
-        <a class="pill" href="#about"><span class="status-dot" aria-hidden="true"></span><span>Organic Growth Engine</span><span class="muted">Built on MOSS</span></a>
-        <h1 id="hero-h">Growth infrastructure for businesses</h1>
-        <p class="hero__lead">OG Engine builds connected systems for marketing, operations and sales. Our first product, Origin, brings 15+ social media platforms into one place.</p>
-        <div class="btn-row">
-          <a class="btn btn--primary" href="#waitlist">Join the waitlist<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
-          <a class="btn btn--secondary" href="#ecosystem">See the ecosystem</a>
-        </div>
-      </div>
-      <div class="hero__window hero__window--dg" data-visual data-icon-base="/launch/kit/icons/">
-        <div class="dg" data-diagram><script type="application/json">{"layout": "hub", "alt": "MOSS at the centre, connected to marketing, operations and sales as one system.", "center": {"label": "MOSS", "icon": "ui:layers"}, "spokes": [{"label": "Marketing", "icon": "ui:megaphone"}, {"label": "Operations", "icon": "ui:settings"}, {"label": "Sales", "icon": "ui:handshake"}]}</script></div>
-      </div>
-    </div></div>
-  </section>
+<main id="main">
 
-  <section class="section" id="problem" aria-labelledby="problem-h">
+  <!-- ABOUT: principles carousel -->
+  <section class="sec sec--dark about" id="about" aria-labelledby="about-h">
     <div class="wrap">
-      <div class="statement">
-        <p class="t-label muted">The problem</p>
-        <h2 id="problem-h" class="mo-lt__type statement__type" data-moment="liquid-type" data-moment-opts='{"strength": 1}'>Growth stalls in disconnected tools</h2>
-        <div class="grid statement__foot">
-          <p class="span-6 statement__lead">Businesses lose their week to tools that never talk to each other: posts, leads, follow-ups and handoffs moved by hand, one platform at a time.</p>
-          <p class="span-6 start-7 statement__lead statement__lead--muted">Another tool does not fix that. Growth needs infrastructure: systems that share their work and run together, so teams spend less time managing software and more time building the business.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="moss" aria-labelledby="moss-h">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="moss-h">MOSS: Marketing, Operations and Sales Systems</h2>
-        <p>MOSS is the architecture under every OG Engine product. The three functions are built as one connected system, not as three separate services.</p>
-      </div>
-      <div class="grid moss-cards">
-        <article class="card card--row m-nolift span-4">
-          <h3>Runs marketing activity</h3>
-          <p>Systems that manage, automate and improve the marketing a business already does.</p>
-          <div class="panel moss-panel" aria-hidden="true"><span class="moss-letter">M</span><span class="moss-word">Marketing</span></div>
-        </article>
-        <article class="card card--row m-nolift span-4">
-          <h3>Removes repeat operations</h3>
-          <p>Systems that cut repetitive work, simplify processes and keep the business running.</p>
-          <div class="panel moss-panel" aria-hidden="true"><span class="moss-letter">O</span><span class="moss-word">Operations</span></div>
-        </article>
-        <article class="card card--row m-nolift span-4">
-          <h3>Moves every lead forward</h3>
-          <p>Systems for lead management, sales workflows, follow-ups and conversions.</p>
-          <div class="panel moss-panel" aria-hidden="true"><span class="moss-letter">S</span><span class="moss-word">Sales</span></div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="ecosystem" aria-labelledby="ecosystem-h">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="ecosystem-h">Independent products, one ecosystem</h2>
-        <p>Each OG Engine product solves one problem on its own and is built to connect with the others. Start with one, then let them work together.</p>
-      </div>
-      <div class="grid eco-cards">
-        <article class="card card--row m-nolift span-8" id="origin">
-          <p class="t-label eco-tag">First product</p>
-          <h3>Origin: social media management</h3>
-          <p>Manage 15+ social media platforms from one central place, without switching between accounts.</p>
-          <div class="panel eco-panel eco-panel--origin" aria-hidden="true">
-            <span class="eco-figure">15+</span>
-            <span class="eco-caption">social media platforms<br>one environment</span>
-          </div>
-        </article>
-        <article class="card card--row m-nolift span-4">
-          <p class="t-label eco-tag eco-tag--muted">In research</p>
-          <h3>Next MOSS products</h3>
-          <p>More products are in the garage. Each one is announced here when it is ready.</p>
-          <div class="panel eco-panel eco-panel--next" aria-hidden="true">
-            <img src="/launch/assets/og-logo-amber-400.png" width="400" height="200" alt="" loading="lazy">
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="about" aria-labelledby="about-h">
-    <div class="wrap about">
-      <div class="about__head stack-4">
-        <p class="t-label muted">About OG Engine</p>
+      <div class="head head--centre" data-reveal>
+        <p class="pill pill--dark">About OG Engine</p>
         <h2 id="about-h">A garage for businesses</h2>
-        <p class="t-lead">A garage is where things are built, tested and improved until they run on their own. We build growth infrastructure the same way: tools that work alone or together, shaped around how each business really runs.</p>
-        <div class="about__frame frame" data-visual><img class="about__mark" src="/launch/assets/og-logo-amber-640.png" width="640" height="320" alt="The OG Engine logo in polished amber metal" loading="lazy"></div>
+        <p class="head__lede">A garage is where things are built, tested and improved until they run on their own. We build growth infrastructure the same way: tools that work alone or together, shaped around how each business really runs.</p>
       </div>
-      <ul class="rows about__rows">
-        <li><span class="rows__name">No manual busywork</span><p>A business should not have to manage everything by hand.</p></li>
-        <li><span class="rows__name">Software removes friction</span><p>Every system we build takes work off a team.</p></li>
-        <li><span class="rows__name">Automation shows its value</span><p>Automation has to produce a result you can measure.</p></li>
-        <li><span class="rows__name">AI only where it helps</span><p>We use AI where it improves the outcome, never as a label.</p></li>
-        <li><span class="rows__name">Systems that talk</span><p>Marketing, operations and sales share their data and their work.</p></li>
-        <li><span class="rows__name">Built to grow with you</span><p>The infrastructure changes as the business does.</p></li>
+    </div>
+
+    <div class="rail" data-rail>
+      <ul class="rail__track" tabindex="0" aria-label="How OG Engine builds: six principles">
+        <li class="pcard" data-art="arcs">
+          <div class="pcard__art" aria-hidden="true"><span class="pcard__no">/ 001</span></div>
+          <div class="pcard__body"><h3>No manual busywork</h3><p>A business should not have to manage everything by hand.</p></div>
+        </li>
+        <li class="pcard pcard--flip" data-art="grid">
+          <div class="pcard__art" aria-hidden="true"><span class="pcard__no">/ 002</span></div>
+          <div class="pcard__body"><h3>Software removes friction</h3><p>Every system we build takes work off a team.</p></div>
+        </li>
+        <li class="pcard" data-art="blocks">
+          <div class="pcard__art" aria-hidden="true"><span class="pcard__no">/ 003</span></div>
+          <div class="pcard__body"><h3>Automation shows its value</h3><p>Automation has to produce a result you can measure.</p></div>
+        </li>
+        <li class="pcard pcard--flip" data-art="rings">
+          <div class="pcard__art" aria-hidden="true"><span class="pcard__no">/ 004</span></div>
+          <div class="pcard__body"><h3>AI only where it helps</h3><p>We use AI where it improves the outcome, never as a label.</p></div>
+        </li>
+        <li class="pcard" data-art="links">
+          <div class="pcard__art" aria-hidden="true"><span class="pcard__no">/ 005</span></div>
+          <div class="pcard__body"><h3>Systems that talk</h3><p>Marketing, operations and sales share their data and their work.</p></div>
+        </li>
+        <li class="pcard pcard--flip" data-art="steps">
+          <div class="pcard__art" aria-hidden="true"><span class="pcard__no">/ 006</span></div>
+          <div class="pcard__body"><h3>Built to grow with you</h3><p>The infrastructure changes as the business does.</p></div>
+        </li>
       </ul>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="sec sec--light problem" id="problem" aria-labelledby="problem-h">
+    <div class="wrap">
+      <div class="problem__head" data-reveal>
+        <div>
+          <p class="pill">The problem</p>
+          <h2 id="problem-h">Growth stalls in disconnected tools</h2>
+        </div>
+        <div class="problem__text">
+          <p>Businesses lose their week to tools that never talk to each other: posts, leads, follow-ups and handoffs moved by hand, one platform at a time.</p>
+          <p>Another tool does not fix that. Growth needs infrastructure: systems that share their work and run together, so teams spend less time managing software and more time building the business.</p>
+        </div>
+      </div>
+
+      <div class="duo" data-reveal>
+        <article class="split">
+          <div class="split__plate">
+            <p class="split__kicker">Today</p>
+            <h3>Tools that never talk</h3>
+            <img class="split__mark" src="/launch/assets/og-logo-white.svg" width="840" height="360" alt="" loading="lazy">
+          </div>
+          <div class="split__art" data-art="scatter" aria-hidden="true"></div>
+        </article>
+        <article class="split split--rev">
+          <div class="split__plate">
+            <p class="split__kicker">With infrastructure</p>
+            <h3>Systems that run together</h3>
+            <img class="split__mark" src="/launch/assets/og-logo-white.svg" width="840" height="360" alt="" loading="lazy">
+          </div>
+          <div class="split__art" data-art="lattice" aria-hidden="true"></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOSS: selector -->
+  <section class="sec sec--dark moss" id="moss" aria-labelledby="moss-h">
+    <div class="wrap moss__grid">
+      <div class="moss__left" data-reveal>
+        <p class="pill pill--dark">MOSS</p>
+        <h2 id="moss-h">Marketing, Operations<br>and Sales Systems</h2>
+        <p class="moss__lede">MOSS is the architecture under every OG Engine product. The three functions are built as one connected system, not as three separate services.</p>
+        <a class="btn btn--ghost" href="#ecosystem">See the ecosystem <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+
+        <div class="picker">
+          <div class="picker__top"><span id="picker-label">Select a system</span><span class="picker__count" aria-hidden="true"><b data-count>1</b>/3</span></div>
+          <div class="picker__list" role="tablist" aria-labelledby="picker-label" aria-orientation="vertical">
+            <button class="pick" type="button" role="tab" id="pick-0" aria-controls="moss-panel" aria-selected="true"><span class="pick__tile" aria-hidden="true">M</span><span class="pick__name">Marketing</span><span class="pick__dot" aria-hidden="true"></span></button>
+            <button class="pick" type="button" role="tab" id="pick-1" aria-controls="moss-panel" aria-selected="false" tabindex="-1"><span class="pick__tile" aria-hidden="true">O</span><span class="pick__name">Operations</span><span class="pick__dot" aria-hidden="true"></span></button>
+            <button class="pick" type="button" role="tab" id="pick-2" aria-controls="moss-panel" aria-selected="false" tabindex="-1"><span class="pick__tile" aria-hidden="true">S</span><span class="pick__name">Sales</span><span class="pick__dot" aria-hidden="true"></span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="stage" id="moss-panel" role="tabpanel" aria-labelledby="pick-0" tabindex="0" data-reveal>
+        <div class="stage__plate" aria-hidden="true"><canvas class="stage__fx"></canvas></div>
+        <svg class="stage__shapes" viewBox="0 0 500 430" aria-hidden="true" preserveAspectRatio="none">
+          <path d="M0 40Q0 24 16 24H42Q52 24 60 31L262 224Q274 238 256 238H16Q0 238 0 222Z"/>
+          <path d="M0 266Q0 250 16 250H284Q294 250 302 257L476 412Q488 430 470 430H16Q0 430 0 414Z"/>
+        </svg>
+        <span class="stage__no" aria-hidden="true">/ <b data-no>001</b></span>
+        <span class="stage__logo" aria-hidden="true">
+          <img class="logo__mark" src="/launch/assets/og-logo-white.svg" width="840" height="360" alt="" loading="lazy">
+        </span>
+        <div class="stage__copy" aria-live="polite">
+          <h3 data-title>Runs marketing activity</h3>
+          <p data-desc>Systems that manage, automate and improve the marketing a business already does.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ECOSYSTEM: numbered bento -->
+  <section class="sec sec--dark eco" id="ecosystem" aria-labelledby="eco-h">
+    <div class="wrap eco__grid">
+      <p class="pill pill--dark eco__pill">Ecosystem</p>
+      <h2 class="eco__h" id="eco-h" data-reveal>Independent products,<br>one ecosystem</h2>
+
+      <div class="eco__side" data-reveal>
+        <p>Each OG Engine product solves one problem on its own and is built to connect with the others. Start with one, then let them work together.</p>
+        <a class="btn btn--ghost" href="#waitlist">Join the waitlist <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+
+      <article class="tile tile--lead" data-reveal>
+        <span class="tile__icon" aria-hidden="true"><svg class="ico"><use href="#i-origin"/></svg></span>
+        <div>
+          <p class="tile__kicker">First product</p>
+          <h3>Origin: <span>social media management</span></h3>
+        </div>
+        <div class="tile__art" data-art="hub" aria-hidden="true"></div>
+      </article>
+
+      <a class="tile tile--a" href="#waitlist" data-reveal>
+        <span class="tile__icon" aria-hidden="true"><svg class="ico"><use href="#i-platforms"/></svg></span>
+        <h3>15+ platforms, one place</h3>
+        <svg class="ico tile__go" aria-hidden="true"><use href="#i-arrow-ne"/></svg>
+        <p>Manage 15+ social media platforms from one central place, without switching between accounts.</p>
+        <span class="tile__num" aria-hidden="true">01</span>
+      </a>
+
+      <a class="tile tile--b" href="#waitlist" data-reveal>
+        <span class="tile__icon" aria-hidden="true"><svg class="ico"><use href="#i-research"/></svg></span>
+        <h3>Next MOSS products</h3>
+        <svg class="ico tile__go" aria-hidden="true"><use href="#i-arrow-ne"/></svg>
+        <p><span class="tile__state">In research.</span> More products are in the garage. Each one is announced here when it is ready.</p>
+        <span class="tile__num" aria-hidden="true">02</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- WAITLIST -->
+  <section class="sec sec--light wait" id="waitlist" aria-labelledby="wait-h">
+    <div class="wrap wait__grid">
+      <div class="wait__left" data-reveal>
+        <p class="pill">Waitlist</p>
+        <h2 id="wait-h">Join the OG Engine waitlist</h2>
+      </div>
+
+      <div class="wait__right" data-reveal>
+        <div class="wait__who">
+          <span class="wait__badge" aria-hidden="true"><img src="/launch/assets/og-logo-white.svg" width="840" height="360" alt="" loading="lazy"></span>
+          <p><b>Origin</b><span>The first MOSS product</span></p>
+        </div>
+        <p class="wait__lede">Hear first when Origin and the next MOSS products open. We only email about OG Engine products.</p>
+
+        <form class="wform" action="/api/waitlist" method="post" novalidate
+              data-sent="You’re on the OG Engine waitlist. We’ll email you when there is news."
+              data-failed="Not joined: the connection failed. Your email is still here; try again.">
+          <div class="wform__field">
+            <label for="w-email">Work email</label>
+            <input id="w-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required aria-describedby="w-email-err">
+            <p class="wform__error" id="w-email-err" hidden>Write an email address with an @, like name@company.com.</p>
+          </div>
+          <div class="honeypot" aria-hidden="true"><label for="w-website">Leave this empty</label><input id="w-website" name="website" tabindex="-1" autocomplete="off"></div>
+          <button class="btn btn--solid" type="submit">Join the waitlist <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <p class="wform__status" role="status" data-form-status></p>
+        </form>
+      </div>
+    </div>
+
+    <div class="ticker" data-ticker>
+      <p class="sr-only">Built for businesses, startups, brands, founders, entrepreneurs, creators, builders, influencers, freelancers, solopreneurs and agencies.</p>
+      <div class="ticker__track" aria-hidden="true">
+        <ul class="ticker__set">
+          <li>Businesses</li><li>Startups</li><li>Brands</li><li>Founders</li><li>Entrepreneurs</li><li>Creators</li><li>Builders</li><li>Influencers</li><li>Freelancers</li><li>Solopreneurs</li><li>Agencies</li>
+        </ul>
+        <ul class="ticker__set">
+          <li>Businesses</li><li>Startups</li><li>Brands</li><li>Founders</li><li>Entrepreneurs</li><li>Creators</li><li>Builders</li><li>Influencers</li><li>Freelancers</li><li>Solopreneurs</li><li>Agencies</li>
+        </ul>
+      </div>
+      <button class="ticker__pause" type="button" aria-pressed="false">Pause</button>
     </div>
   </section>
 </main>
 
-<footer class="footer closing footer--statement g2m" id="contact" aria-labelledby="close-h">
+<footer class="foot" id="contact">
   <div class="wrap">
-    <div class="closing__cta close--type" id="waitlist">
-      <div class="section-head">
-        <h2 id="close-h">Join the OG Engine waitlist</h2>
-        <p>Hear first when Origin and the next MOSS products open. We only email about OG Engine products.</p>
+    <div class="foot__grid">
+      <div class="foot__brand">
+        <a class="logo" href="#top" aria-label="OG Engine home">
+          <img class="logo__mark" src="/launch/assets/og-logo-white.svg" width="840" height="360" alt="" loading="lazy">
+        </a>
+        <p>Organic Growth Engine: connected systems for marketing, operations and sales.</p>
       </div>
-      <form class="form waitlist-form" action="/api/waitlist" method="post" data-endpoint="/api/waitlist" data-sent="You’re on the OG Engine waitlist. We’ll email you when there is news." data-failed="Not joined: the connection failed. Your email is still here; try again." novalidate>
-        <div class="field">
-          <label for="w-email">Work email</label>
-          <input id="w-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required aria-describedby="w-email-err">
-          <p class="field__error" id="w-email-err" hidden>Write an email address with an @, like name@company.com.</p>
-        </div>
-        <div class="honeypot" aria-hidden="true"><label for="w-website">Leave this empty</label><input id="w-website" name="website" tabindex="-1" autocomplete="off"></div>
-        <button class="btn btn--primary" type="submit">Join the waitlist<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></button>
-        <p class="form__status" role="status" data-form-status></p>
-      </form>
+
+      <nav class="foot__col" aria-label="Pages">
+        <h2>Pages</h2>
+        <ul class="foot__links">
+          <li><a href="#top">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#moss">MOSS</a></li>
+          <li><a href="#ecosystem">Products</a></li>
+          <li><a href="#waitlist">Waitlist</a></li>
+        </ul>
+      </nav>
+
+      <nav class="foot__col" aria-label="Legal">
+        <h2>Legal</h2>
+        <ul class="foot__links">
+          <li><a href="/Privacy_Policy_OrganicGrowthEngine.docx">Privacy</a></li>
+          <li><a href="/Terms_of_Service_OrganicGrowthEngine.docx">Terms</a></li>
+          <li><a href="/Cookie_Policy_OrganicGrowthEngine.docx">Cookies</a></li>
+        </ul>
+      </nav>
+
+      <div class="foot__col foot__reach">
+        <h2>Reach us</h2>
+        <ul class="foot__plain">
+          <li><a href="mailto:ogengine.office@gmail.com">Email</a></li>
+          <li><a href="tel:+919870562062">Call</a></li>
+        </ul>
+        <ul class="handles">
+          <li><a class="handle" href="https://x.com/Ogengine" target="_blank" rel="noopener noreferrer"><span><b>X</b><i>@Ogengine</i></span><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg></a></li>
+          <li><a class="handle" href="https://www.linkedin.com/in/og-engine-3a995b435/" target="_blank" rel="noopener noreferrer"><span><b>LinkedIn</b><i>OG Engine</i></span><svg class="ico" aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
+          <li><a class="handle" href="https://www.instagram.com/og.engine/" target="_blank" rel="noopener noreferrer"><span><b>Instagram</b><i>@og.engine</i></span><svg class="ico" aria-hidden="true"><use href="#i-instagram"/></svg></a></li>
+          <li><a class="handle" href="https://www.youtube.com/@OGENGINE" target="_blank" rel="noopener noreferrer"><span><b>YouTube</b><i>@OGENGINE</i></span><svg class="ico" aria-hidden="true"><use href="#i-youtube"/></svg></a></li>
+          <li><a class="handle" href="https://discord.gg/hhzHQaU7" target="_blank" rel="noopener noreferrer"><span><b>Discord</b><i>Community server</i></span><svg class="ico" aria-hidden="true"><use href="#i-discord"/></svg></a></li>
+        </ul>
+      </div>
     </div>
-    <div class="closing__links">
-      <div class="grid">
-        <div class="span-4 stack-4">
-          <a class="nav__logo" href="#top" aria-label="OG Engine home"><img class="og-logo" src="/launch/assets/og-logo-amber-400.png" width="400" height="200" alt="" loading="lazy">OG Engine</a>
-          <p class="footer__lede">Organic Growth Engine: connected systems for marketing, operations and sales.</p>
-        </div>
-        <div class="span-2 footer__col"><h3>Reach us</h3><ul><li><a href="mailto:ogengine.office@gmail.com">Email</a></li><li><a href="tel:+919870562062">Call</a></li><li><a href="https://www.instagram.com/og.engine/" target="_blank" rel="noopener noreferrer">Chat on Instagram</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>Pages</h3><ul><li><a href="#ecosystem">Products</a></li><li><a href="/docs">Docs</a></li><li><a href="/blog">Blog</a></li><li><a href="/careers">Careers</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>Socials</h3><ul><li><a href="https://x.com/Ogengine" target="_blank" rel="noopener noreferrer">X</a></li><li><a href="https://www.youtube.com/@OGENGINE" target="_blank" rel="noopener noreferrer">YouTube</a></li><li><a href="https://www.linkedin.com/in/og-engine-3a995b435/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li><li><a href="https://discord.gg/hhzHQaU7" target="_blank" rel="noopener noreferrer">Discord</a></li></ul></div>
-        <div class="span-2 footer__col"><h3>Legal</h3><ul><li><a href="/Privacy_Policy_OrganicGrowthEngine.docx">Privacy</a></li><li><a href="/Terms_of_Service_OrganicGrowthEngine.docx">Terms</a></li><li><a href="/Cookie_Policy_OrganicGrowthEngine.docx">Cookies</a></li></ul></div>
-      </div>
-      <div class="footer__legal">
-        <span>&copy; 2026 OG Engine</span>
-      </div>
+
+    <div class="foot__base">
+      <p>&copy; 2026 OG Engine.<br>All rights reserved.</p>
+      <a class="foot__top" href="#top">Back to the top <svg class="ico ico--up" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
   </div>
 </footer>
 
-<script type="module" src="/launch/kit/system.js"></script>
-<script type="module" src="/launch/kit/motion/motion.js"></script>
-<script type="module" src="/launch/kit/layout/layout.js"></script>
-<script type="module" src="/launch/kit/diagrams/mount.js"></script>
+<script src="/launch/script.js" defer></script>
 </body>
 </html>

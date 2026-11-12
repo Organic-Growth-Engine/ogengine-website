@@ -1,87 +1,22 @@
 import type { Metadata } from "next";
-import "./globals.css";
 
+// The home page is the static file public/launch/index.html, served at "/" by the
+// rewrite in next.config.ts (and vercel.json). This layout only wraps Next.js's own
+// pages, such as the 404 page.
 export const metadata: Metadata = {
-  title: "OG Engine | MOSS Automation Softwares",
-  description:
-    "A tool suite for MOSS Automation Softwares designed as per the required Infrastructure.",
-  keywords: [
-    "Automation",
-    "AI",
-    "MOSS",
-    "Marekting",
-    "Operations",
-    "Sales",
-    "SaaS",
-  ],
-  authors: [{ name: "OGengine" }],
-  creator: "OGengine",
-  publisher: "OGengine",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
+  title: "OG Engine",
   metadataBase: new URL("https://ogengine.co"),
-  alternates: {
-    canonical: "https://ogengine.co",
-  },
-  openGraph: {
-    title: "OGengine | MOSS Automation Softwares",
-    description:
-      "A tool suite for MOSS Automation Softwares designed as per the required Infrastructure.",
-    url: "https://ogengine.co",
-    siteName: "OGengine",
-    images: [
-      {
-        url: "/og.png",
-        width: 1200,
-        height: 630,
-        alt: "OGengine Logo",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "OGengine | MOSS Automation Softwares",
-    description:
-      "A tool suite for MOSS Automation Softwares designed as per the required Infrastructure.",
-    images: ["/og.png"],
-    creator: "@ogengine",
-  },
-  icons: {
-    icon: [{ url: "/og.svg?v=2", sizes: "any", type: "image/svg+xml" }],
-    apple: [{ url: "/og.png", sizes: "any", type: "image/png" }],
-  },
-  manifest: "/manifest.json",
+  icons: { icon: "/og-favicon.svg", apple: "/launch/assets/apple-touch-icon.png" },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="h-full antialiased">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400&family=Oswald:wght@400;700&family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&family=Manrope:wght@300;400;500;600&family=Syne:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap"
-          rel="stylesheet"
-        />
-
-        {/* Additional favicon for better browser support */}
-        <link rel="icon" type="image/svg+xml" href="/og.svg?v=2" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/og.png" />
-      </head>
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en">
+      <body style={{ margin: 0, background: "#0a0807", color: "#f7f2ec", fontFamily: "system-ui, sans-serif" }}>
+        {children}
+      </body>
     </html>
   );
 }
