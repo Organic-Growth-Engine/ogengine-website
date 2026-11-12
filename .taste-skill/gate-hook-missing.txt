@@ -1,0 +1,1 @@
+2026-11-12T09:51:14Z gate.mjs not found; CLAUDE_PLUGIN_ROOT=/Users/shubh/Downloads/OGengine-main/.claude/skills/design-taste-frontend CLAUDE_PROJECT_DIR=/Users/shubh/Downloads/OGengine-main HOME=/Users/shubh
