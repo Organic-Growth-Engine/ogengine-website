@@ -3,7 +3,18 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
+    // The launch page's form posts FormData; older clients send JSON.
+    const contentType = request.headers.get("content-type") ?? "";
+    let body: { email?: unknown; website?: unknown };
+    if (
+      contentType.includes("multipart/form-data") ||
+      contentType.includes("application/x-www-form-urlencoded")
+    ) {
+      const form = await request.formData();
+      body = { email: form.get("email"), website: form.get("website") };
+    } else {
+      body = await request.json();
+    }
 
     const email =
       typeof body.email === "string"
