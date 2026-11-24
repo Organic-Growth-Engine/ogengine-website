@@ -1,5 +1,6 @@
-import { NextResponse } from "next/server";
+import { NextResponse, after } from "next/server";
 import { resolveMx, resolve4, resolve6 } from "node:dns/promises";
+import { sendWelcomeEmail } from "./welcome-email";
 
 // DNS lookups need the Node.js runtime.
 export const runtime = "nodejs";
@@ -165,6 +166,10 @@ export async function POST(request: Request) {
         { status: 500 }
       );
     }
+
+    // Only brand-new subscribers reach this point (duplicates returned 409 above).
+    // Sent after the response so signup stays fast; a failed email never fails the signup.
+    after(() => sendWelcomeEmail(email));
 
     return NextResponse.json({ success: true });
   } catch {
