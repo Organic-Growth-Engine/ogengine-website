@@ -372,31 +372,84 @@
     });
   });
 
-  /* ── Waitlist form: checked on submit, confirmed only once the server answers ── */
+  /* ── Waitlist form: format checked in the browser, mail domain checked by the server, ── */
+  /* ── errors shown under the field, welcome dialog once the server confirms.         ── */
+  const welcome = $('#w-welcome');
+  if (welcome) {
+    $$('[data-close]', welcome).forEach(b => b.addEventListener('click', () => welcome.close()));
+    welcome.addEventListener('click', e => { if (e.target === welcome) welcome.close(); });
+  }
+
   $$('.wform').forEach(form => {
     const input = $('#w-email', form);
     const error = $('#w-email-err', form);
     const status = $('[data-form-status]', form);
     const button = $('[type="submit"]', form);
     const say = (text, state = '') => { status.textContent = text; status.dataset.state = state; };
-    const valid = () => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
-    const mark = bad => { input.setAttribute('aria-invalid', String(bad)); error.hidden = !bad; };
+    const RE = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@([a-z0-9]([a-z0-9-]*[a-z0-9])?\.)+[a-z]{2,63}$/i;
+    const value = () => input.value.trim().toLowerCase();
+    const formatError = v => !v ? 'Enter your email address.'
+      : (v.length > 254 || !RE.test(v)) ? 'Enter a valid email address, like name@company.com.' : '';
+    const mark = msg => {
+      input.setAttribute('aria-invalid', String(!!msg));
+      error.textContent = msg;
+      error.hidden = !msg;
+    };
 
-    input.addEventListener('input', () => { if (input.getAttribute('aria-invalid') === 'true' && valid()) mark(false); });
+    // Server check (mail domain exists, not a throwaway inbox). Cached per address.
+    const cache = new Map();
+    const serverCheck = v => {
+      if (!cache.has(v)) {
+        cache.set(v, fetch(`${form.action}?email=${encodeURIComponent(v)}`, { headers: { Accept: 'application/json' } })
+          .then(r => r.json())
+          .then(d => (d.ok ? '' : d.error || 'Enter a valid email address.'))
+          .catch(() => { cache.delete(v); return ''; })); // network trouble: let submit decide
+      }
+      return cache.get(v);
+    };
+
+    let timer;
+    const liveCheck = async () => {
+      const v = value();
+      const fmt = formatError(v);
+      if (fmt) { mark(v ? fmt : ''); return; }
+      const msg = await serverCheck(v);
+      if (value() === v) mark(msg);
+    };
+
+    input.addEventListener('input', () => {
+      say('');
+      clearTimeout(timer);
+      // While the field shows an error, clear it as soon as the address looks valid again.
+      if (input.getAttribute('aria-invalid') === 'true' && !formatError(value())) mark('');
+      timer = setTimeout(() => { if (!formatError(value())) liveCheck(); }, 600);
+    });
+    input.addEventListener('blur', () => { clearTimeout(timer); if (value()) liveCheck(); });
+
     form.addEventListener('submit', async e => {
       e.preventDefault();
+      clearTimeout(timer);
       say('');
-      if (!valid()) { mark(true); input.focus(); return; }
-      mark(false);
+      const v = value();
+      const fmt = formatError(v);
+      if (fmt) { mark(fmt); input.focus(); return; }
       button.disabled = true;
-      const wait = setTimeout(() => say('Sending'), 300);
+      const wait = setTimeout(() => say('Checking your email…'), 300);
       try {
         const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
         const data = await res.json().catch(() => ({}));
         clearTimeout(wait);
-        if (!res.ok) { say(data.error ? `Not joined: ${data.error}` : form.dataset.failed, 'failed'); return; }
+        say('');
+        if (!res.ok) {
+          if (data.field === 'email') { mark(data.error); input.focus(); }
+          else say(data.error ? `Not joined: ${data.error}` : form.dataset.failed, 'failed');
+          return;
+        }
+        mark('');
         form.reset();
-        say(form.dataset.sent);
+        cache.clear();
+        if (welcome && typeof welcome.showModal === 'function') welcome.showModal();
+        else say(form.dataset.sent);
       } catch {
         clearTimeout(wait);
         say(form.dataset.failed, 'failed');
