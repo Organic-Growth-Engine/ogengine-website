@@ -279,12 +279,20 @@
           <div class="wform__field">
             <label for="w-email">Work email</label>
             <input id="w-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required aria-describedby="w-email-err">
-            <p class="wform__error" id="w-email-err" hidden>Write an email address with an @, like name@company.com.</p>
+            <p class="wform__error" id="w-email-err" aria-live="polite" hidden></p>
           </div>
           <div class="honeypot" aria-hidden="true"><label for="w-website">Leave this empty</label><input id="w-website" name="website" tabindex="-1" autocomplete="off"></div>
           <button class="btn btn--solid" type="submit">Join the waitlist <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
           <p class="wform__status" role="status" data-form-status></p>
         </form>
+        <dialog class="welcome" id="w-welcome" aria-labelledby="w-welcome-h">
+          <div class="welcome__body">
+            <span class="welcome__badge" aria-hidden="true"><img src="/launch/assets/og-logo-white.svg" width="840" height="360" alt=""></span>
+            <h3 id="w-welcome-h">Welcome to the waitlist</h3>
+            <p>You’re in. You’ll receive updates about Origin and the next OG Engine products over email.</p>
+            <button class="btn btn--solid" type="button" data-close autofocus>Got it</button>
+          </div>
+        </dialog>
       </div>
     </div>
 
